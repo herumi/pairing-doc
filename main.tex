@@ -132,7 +132,7 @@ Homomorphic Encryption\footnote{http://portal.acm.org/citation.cfm?id=1431888}�
 横道にそれましたが, 要は式\ref{eq:def_pairing}を違う形で(基底を使わない形で)定式化しないといけないということです. Silvermanによる解説はそれが主題です. 
 
 \section{準同型写像の集合}
-しばらく無味乾燥なホモロジー代数の初歩に入ります. ここは難しくないのですが一度は一歩一歩自分で手を動して示さないといけないと思います.\\
+しばらく無味乾燥なホモロジー代数の初歩に入ります. ここは難しくないのですが一度は一歩一歩自分で手を動かして示さないといけないと思います.\\
 キーワードは 「短い完全列があれば長い完全列を作れる.」\\
 $M, N, P, Q$を$R$加群とします.
 
@@ -255,7 +255,7 @@ $f: P \rightarrow Q$があると, $P/\Ker(f) = \Im(f)$が成り立ちます(準�
 
 \hrulefill\\
 
-$R$加群$P_1, P_2, \ldots$の列とその間の準同型写像$f_1: P_1 \rightarrow P_2, \ldots$があったときに$\Im(f_i) = \Ker(f_{i+1}$
+$R$加群$P_1, P_2, \ldots$の列とその間の準同型写像$f_1: P_1 \rightarrow P_2, \ldots$があったときに$\Im(f_i) = \Ker(f_{i+1})$
 が成り立つ時その列を完全(系)列(exact sequence)といいます.
 
 たとえば
@@ -384,10 +384,10 @@ $h(r) = rf(a) = f(ra) = f(g(r))$が成り立つからです.
 
 $R$の元を並べて作った直和$\oplus R$自由加群といいますが, 同様にして射影的であることを示せます.
 
-さて, $R$加群$P$に対して$P$の$P$個の直和$\displaystyle P_0 = \bigoplus_{\lambda\in P} R$を考えて$\lambda$番目を$\lambda$, それ以外を0に写す写像$\epsilon$を考えるとこれは全射です.
+さて, $R$加群$P$に対して$P$の$P$個の直和$\displaystyle P_0 = \bigoplus_{\lambda\in P} R$を考えて$\lambda$番目を$\lambda$, それ以外を0に写す写像$\varepsilon$を考えるとこれは全射です.
 
-その$\Ker(\epsilon)$に対して同じことを繰り返すと$d_1: P_1 \rightarrow \Ker(\epsilon) \rightarrow 0$を作れます.
-$\Ker(\epsilon)$は$P_0$の部分群なので$\Im(d_0) = \Ker(\epsilon)$. この操作を繰り返すことで
+その$\Ker(\varepsilon)$に対して同じことを繰り返すと$d_1: P_1 \rightarrow \Ker(\varepsilon) \rightarrow 0$を作れます.
+$\Ker(\varepsilon)$は$P_0$の部分群なので$\Im(d_0) = \Ker(\varepsilon)$. この操作を繰り返すことで
 
 
 \begin{eqnarray*}
@@ -404,13 +404,13 @@ $\Ker(\epsilon)$は$P_0$の部分群なので$\Im(d_0) = \Ker(\epsilon)$. この
 \ldots \rightarrow P_n \xrightarrow[d_n]{} P_{n-1} \rightarrow \cdots \rightarrow P_0 \xrightarrow[\varepsilon]{} P \rightarrow 0
 \end{aligned}
 \end{eqnarray*}
-が完全列であるとき, $(P_n, d_n, \epsilon)$を$P$の射影分解といいます. 自由加群は射影加群なので上記の操作により射影分解は常に存在します.
+が完全列であるとき, $(P_n, d_n, \varepsilon)$を$P$の射影分解といいます. 自由加群は射影加群なので上記の操作により射影分解は常に存在します.
 
 $R$が単項イデアル整域(PID)と呼ばれる都合のよい環であるとき(例えば$\mathbb{Z}$や$\mathbb{Z}/p\mathbb{Z}$), 自由加群の部分加群はまた自由加群, つまり射影加群になることが知られています.
 
 \# $R$がPIDのとき, 自由であることと射影的であることは同値です.
 
-つまり, 上記の$\Ker(\epsilon)$が射影的になり, そこで止めることができます. 言いなおすと$R$がPIDなら任意の$R$加群$P$について
+つまり, 上記の$\Ker(\varepsilon)$が射影的になり, そこで止めることができます. 言いなおすと$R$がPIDなら任意の$R$加群$P$について
 $0\rightarrow P_1 \rightarrow P_0 \rightarrow P \rightarrow 0$という射影分解が存在します. とりあえず, これを事実として進めましょう.
 
 \subsection{コホモロジー}
