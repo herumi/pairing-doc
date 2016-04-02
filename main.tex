@@ -9,6 +9,7 @@
 \usepackage{xypic}
 \usepackage{ascmac}
 \usepackage[hyphens]{url}
+\usepackage{braket}
 %\let\keytop\undefined
 %\let\return\undefined
 \newcommand{\CC}{\mathbb{C}}
@@ -554,7 +555,7 @@ $R$がPIDの時、\ref{sc:proj_module}節の最後に書いたように
 \end{equation*}
 
 という鎖複体なので
-$\displaystyle \Ext^1(P, Q) = \frac{\Ker(0^\star)}{\Im(d^\star)} = \frac{\Hom(P_1, Q)}{\Im(d^\star)} = \Coker(d^\star)$.
+$\displaystyle \Ext^1(P, Q) = \Ker(0^\star)/\Im(d^\star) = \Hom(P_1, Q)/\Im(d^\star) = \Coker(d^\star)$.
 $\Ext^n(P, Q) = 0$ (for $n \geq 2$)となります. 
 
 ここで, Silvermanの論文に出てくる$\Ext$の表現との関係を見てみましょう. Silvermanのところでは
@@ -793,13 +794,13 @@ $X$上の関数$f$が正則(holomorphic)であるとは, 局所座標を通じ�
 
 Euclid空間$\CC^{n+1}$の2点$x, y$に同値関係を「$x\sim y\Leftrightarrow $ある$\lambda \in \CC^*$があって$x = \lambda y$」でいれます. ベクトルの向きが同じ点を同一視するということです. 同値関係で割った空間を
 
-\begin{equation*}
-\PP^n = \frac{\CC^{n+1}}{\sim}
-\end{equation*}
+\[
+\PP^n = \CC^{n+1} / \sim
+\]
 
 と書き, $n$次射影空間といいます. $\PP^n$は複素多様体になります. $x = (x_0, \ldots, x_n)$の同値類を$(x_0 : \cdots : x_n)$と書くことにします.
 
-$\PP^1$で考えてみましょう. $U = \left\{(x:y) \in \PP^1 | y \neq 0\right\}$, $\phi: U \rightarrow \CC$を$\phi(x:y) = \frac{x}{y}$とすると, $\phi$はwell-definedで1対1の対応になります. $\PP^1 = U\cup V$であり, $U\cap V$では$\CC^*$と1対1の対応が付くこともわかって局所座標になります. $\PP^1 - U = \left\{(x:y) \in \PP^1 | y = 0\right\}$は$ = \left\{(1:0)\right\}$と1点になります. これを$\infty$とかくことにすると$\PP^1 = \CC \cup \{\infty\}$となります. Riemann球面といいます. 
+$\PP^1$で考えてみましょう. $U = \left\{(x:y) \in \PP^1 | y \neq 0\right\}$, $\phi: U \rightarrow \CC$を$\phi(x:y) = x / y$とすると, $\phi$はwell-definedで1対1の対応になります. $\PP^1 = U\cup V$であり, $U\cap V$では$\CC^*$と1対1の対応が付くこともわかって局所座標になります. $\PP^1 - U = \left\{(x:y) \in \PP^1 | y = 0\right\}$は$ = \left\{(1:0)\right\}$と1点になります. これを$\infty$とかくことにすると$\PP^1 = \CC \cup \{\infty\}$となります. Riemann球面といいます. 
 
 複素多様体$X$から$\PP^1$への正則な写像を$X$上の有理型関数といいます. $X$上の有理型関数全体を$M(X)$と書くことにします.
 \newpage
@@ -850,7 +851,11 @@ $\CC$の中の開集合$U$を十分小さくとると$\Lambda$ずれた値が入
 
 楕円曲線$X$上の関数は$\CC$上の関数で$f(x+a+b\lambda) = f(x)$, $a, b \in\ZZ$, $\Lambda = \langle1, \lambda\rangle$を満たす関数とみなせます. $f$を$\CC$上の二重周期関数と呼んだりします.
 
-$m$を自然数とし, $X$上の$m$倍写像$m: X \ni x \rightarrow mx \in X$を考えると$m(x+y) = mx+my$なので準同型写像です. $\Ker(m)$は$m$倍して0になる点ですが, $\Lambda = \ZZ + \ZZ\lambda$なので$\Ker(m) = \left\{\frac{a}{m} + \frac{b}{m}\in X | a, b \in \ZZ\right\} = (\ZZ/m\ZZ)^2$となります. また$m$は全射です. 
+$m$を自然数とし, $X$上の$m$倍写像$m: X \ni x \rightarrow mx \in X$を考えると$m(x+y) = mx+my$なので準同型写像です. $\Ker(m)$は$m$倍して0になる点ですが, $\Lambda = \ZZ + \ZZ\lambda$なので
+\[
+\Ker(m) = \Set{\frac{a}{m} + \frac{b}{m}\in X | a, b \in \ZZ} = (\ZZ/m\ZZ)^2
+\]
+となります. また$m$は全射です.
 
 \section{Weilペアリング}
 基本的な用語がだいたい終わったので(ふぅ), 漸く本題のペアリングの話に戻れます.
@@ -910,7 +915,7 @@ $\div(f) := \sum \ord_P(f) (P)$と定義すると, $f$のzeroやpoleや有限個
 
 2つの因子$\mathcal{D}, \mathcal{D}'$が線形同値であるとは, ある$f$があって$\mathcal{D} = \mathcal{D} + \div(f)$となるときにいいます.
 
-$f, g$を0や$\infty$でない有理型関数とすると$\div(fg) = \div(f) + \div(g)$, $\div(f^{-1}) = -\div(f)$であることは容易にわかります. よって $\div: M(X) \rightarrow \Div^0(X)$は準同型写像になり, $\Pic^0(f) := \frac{\Div^0(X)}{\sim}$もAbel群になります. $\Pic$はPicardの略です. 
+$f, g$を0や$\infty$でない有理型関数とすると$\div(fg) = \div(f) + \div(g)$, $\div(f^{-1}) = -\div(f)$であることは容易にわかります. よって $\div: M(X) \rightarrow \Div^0(X)$は準同型写像になり, $\Pic^0(f) := \Div^0(X)/\sim$もAbel群になります. $\Pic$はPicardの略です. 
 
 とりあえず, $\Pic^0(X)$を定義しましたが, これだけでは全然意味がわかりませんね.
 
@@ -1001,7 +1006,11 @@ $T \in X$を1つとったとき, $\tau_T : X \ni P \rightarrow P+T \in X$とい�
 $\tau_R^*\mathcal{D} - \mathcal{D} = (T-P) - (-P) - (T) + (\mathcal{O})$を考えると点の加算として$T - P + P - T = \mathcal{O}$なのでRiemann-Rochの定理からある$f_{T, R} \in M(X)$があって$\tau_R^*\mathcal{D} - \mathcal{D} = \div(\FF_{T, R})$.
 この$f$は定数倍を除いてuniqueです.
 
-$\phi: \Pic^0(X) \rightarrow \Ext(X, \GG_m)$を$\displaystyle\phi(T)(P, Q) = \frac{f_{T, P}(Q)}{f_{T, P}(\mathcal{O})}$で定義します. 定数倍して$f_{T, P}(\mathcal{O}) = 1$としてもよいです. $T = \mathcal{O}$のときは$f_{D, R} = 1$とします.
+$\phi: \Pic^0(X) \rightarrow \Ext(X, \GG_m)$を
+\[
+\phi(T)(P, Q) = \frac{f_{T, P}(Q)}{f_{T, P}(\mathcal{O})}
+\]
+で定義します. 定数倍して$f_{T, P}(\mathcal{O}) = 1$としてもよいです. $T = \mathcal{O}$のときは$f_{D, R} = 1$とします.
 
 $\phi(T)(P, Q)$が$\Ext$の元であることを確認します.
 
