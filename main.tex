@@ -313,13 +313,13 @@ $\Im(f) = \Ker(0_Q)$ということです. $0_Q$は$Q$の全ての元を$0$に�
 $\varphi^*: \Hom(P, Q \rightarrow \Hom(N, Q)$という写像を作れました. 同様に
 $\psi^*: \Hom(N, Q) \rightarrow \Hom(M, Q)$という写像も作れます. 実は
 
-\begin{eqnarray*}
-\begin{aligned}
+\begin{theorem}
+\[
 0 \rightarrow \Hom(P, Q) \xrightarrow{\varphi^*} \Hom(N, Q) \xrightarrow{\psi^*} \Hom(M, Q)
-\end{aligned}
-\end{eqnarray*}
-
-が完全列となります.完全列$M\rightarrow N \rightarrow P \rightarrow 0$に$\Hom$を作用させて新しい完全列を作るので,
+\]
+が完全列となります.
+\end{theorem}
+完全列$M\rightarrow N \rightarrow P \rightarrow 0$に$\Hom$を作用させて新しい完全列を作るので,
 これを$\Hom(, Q)$の左完全性といいます.
 
 証明しましょう. まず$\varphi^*$は単射です. なぜなら$f \in \Hom(P, Q)$について$\varphi^*(f) = 0$とします. これは任意の$n\in N$について
@@ -387,26 +387,20 @@ $R$の元を並べて作った直和$\oplus R$自由加群といいますが, �
 その$\Ker(\varepsilon)$に対して同じことを繰り返すと$d_1: P_1 \rightarrow \Ker(\varepsilon) \rightarrow 0$を作れます.
 $\Ker(\varepsilon)$は$P_0$の部分群なので$\Im(d_0) = \Ker(\varepsilon)$. この操作を繰り返すことで
 
-
-\begin{eqnarray*}
-\begin{aligned}
+\[
 \ldots \rightarrow P_n \xrightarrow[d_n]{} P_{n-1} \rightarrow \cdots \xrightarrow[d_1]{} P_0 \xrightarrow[\varepsilon]{} P \rightarrow 0
-\end{aligned}
-\end{eqnarray*}
-
+\]
 という完全列を作ることができます.
 
 より一般に$R$加群$P$に対して, (自由加群とは限らない)射影加群の列$\Set{P_n}$とその間の準同型$\Set{d_n}$が存在し, 
-\begin{eqnarray*}
-\begin{aligned}
+\[
 \ldots \rightarrow P_n \xrightarrow[d_n]{} P_{n-1} \rightarrow \cdots \rightarrow P_0 \xrightarrow[\varepsilon]{} P \rightarrow 0
-\end{aligned}
-\end{eqnarray*}
+\]
 が完全列であるとき, $(P_n, d_n, \varepsilon)$を$P$の射影分解といいます. 自由加群は射影加群なので上記の操作により射影分解は常に存在します.
 
 $R$が単項イデアル整域(PID)と呼ばれる都合のよい環であるとき(例えば$\ZZ$や$\ZZ/p\ZZ$), 自由加群の部分加群はまた自由加群, つまり射影加群になることが知られています.
 
-\# $R$がPIDのとき, 自由であることと射影的であることは同値です.
+（注意）$R$がPIDのとき, 自由であることと射影的であることは同値です.
 
 つまり, 上記の$\Ker(\varepsilon)$が射影的になり, そこで止めることができます. 言い直すと$R$がPIDなら任意の$R$加群$P$について
 $0\rightarrow P_1 \rightarrow P_0 \rightarrow P \rightarrow 0$という射影分解が存在します. とりあえず, これを事実として進めましょう.
@@ -414,13 +408,11 @@ $0\rightarrow P_1 \rightarrow P_0 \rightarrow P \rightarrow 0$という射影分
 \subsection{コホモロジー}
 $R$加群の列とその間の準同型写像の組$X = \Set{X^n, d^n}$が$d^{n+1} \circ d^n = 0$を満たすとき, $X$を双対鎖複体(dual chain complex)といいます.
 
-\begin{eqnarray*}
-\begin{aligned}
+\[
 0 \xrightarrow[d^{-1} = 0]{} \ldots \xrightarrow[d^{n+1}]{} X^{n+1} \xrightarrow[d^n]{} X^n \xrightarrow[d^{n-1}]{} X^{n-1} \rightarrow \ldots
-\end{aligned}
-\end{eqnarray*}
+\]
 
-このとき, $Z^n(x) = \Ker(d^n), B^n(X) = \Im(d^{n+1})$として$H^n(X) = Z^n(X)/B^n(X)$を$X$の$n$次コホモロジーといいます.
+このとき, $Z^n(x) = \Ker(d^n)$, $B^n(X) = \Im(d^{n+1})$として$H^n(X) = Z^n(X)/B^n(X)$を$X$の$n$次コホモロジーといいます.
 
 二つの双対鎖複体$X = \Set{X^n, d^n}$, $Y = \Set{Y^n, e^n}$とその間の準同型写像の組$f^n:X^n \rightarrow Y^n$
 が$\Set{d^n}$と可換なとき $f = \Set{f^n}$を鎖準同型といいます.
@@ -441,16 +433,23 @@ $H(f^n): H^n(X) \rightarrow H^n(Y)$ を自然に定義できます.
 \label{sc:homotopy}
 $X=\Set{X^n, d^n}$, $Y = \Set{Y^n, e^n}$を双対鎖複体, $f=\Set{f^n}$, $X=\Set{X^n, d^n}$, $Y = \Set{Y^n, e^n}$を双対鎖複体,
 $g=\Set{g^n}$を$X$から$Y$への鎖準同型とします. $f$と$g$が鎖ホモトープであるとは, ある$R$準同型写像$s=\Set{s^n: X^n\rightarrow Y^{n+1}}$があって, 
-$f^n-g^n = s^{n+1} \circ d^n+e^{n-1} \circ s^n$となるものをいう($s^{-1} = 0$).
+$f^n-g^n = s^{n+1} \circ d^n+e^{n-1} \circ s^n$となるものをいいます（$s^{-1} = 0$）.
 
-これはちょっと面倒で図を省略します. $f$と$g$の差が上から下への矢印が右行って左斜め下に行くものと左斜めに行ってみぎにいくものとの和でかけるということです.
+これはちょっと面倒で図を省略します. $f$と$g$の差が上から下への矢印が右行って左斜め下に行くものと左斜めに行って右にいくものとの和でかけるということです.
 
-鎖ホモトープという条件は同値関係$\sim$になります. $Z^n(X) \ni x$に対して$f^n(x) - g^n(x) = s^{n+1} \circ d^n + e^{n-1}\circ s^n(x) = e^{n-1}\circ s^n(x) \in B^n(Y)$. 
+鎖ホモトープという条件は同値関係$\sim$になります.
+$Z^n(X) \ni x$に対して
+\[
+f^n(x) - g^n(x) = s^{n+1} \circ d^n + e^{n-1}\circ s^n(x) = e^{n-1}\circ s^n(x) \in B^n(Y).
+\]
 よって $H(f^n)(x) = H(g^n)(x)$. つまり$f\sim g$なら$H(f) = H(g)$ということです.
 
 双対鎖複体 $X, Y$ に対して鎖準同型 $f: X\rightarrow Y, g: Y\rightarrow X$が存在して $g\circ f \sim \id_X, f\circ g \sim \id_Y$となったとします
-($\id_X$などは恒等写像). この状態を$X$と$Y$は同じホモトピー型を持つといいます. すると $H(g)\circ H(f) = H(g\circ f) = H(\id_X) = 1, H(f)\circ H(g) = H(f\circ g) = H(\id_Y) = 1$となり, 
-$H^n(X)$と$H^n(Y)$は同型となります. 
+($\id_X$などは恒等写像). この状態を$X$と$Y$は同じホモトピー型を持つといいます. すると
+\[
+H(g)\circ H(f) = H(g\circ f) = H(\id_X) = 1, H(f)\circ H(g) = H(f\circ g) = H(\id_Y) = 1
+\]
+となり,  $H^n(X)$と$H^n(Y)$は同型となります. 
 
 \subsection{射影分解の一意性}
 射影分解はある種の一意性を持ちます. $P$と$P'$の射影分解を$(P_n, d_n, \varepsilon), (P'_n, d'_n, \varepsilon')$とします.
@@ -465,12 +464,17 @@ $H^n(X)$と$H^n(Y)$は同型となります.
 $\Hom(P, P') \ni \phi$を一つとります. $\varepsilon': P'_0 \rightarrow P \rightarrow 0$という全射と$\phi\circ\varepsilon: P_0 \rightarrow P$という写像を考えると, 
 $P'_0$の射影性から, ある$\phi_0: P_0 \rightarrow P'_0$で$\phi\circ\varepsilon = \varepsilon'\circ\phi_0$を満たすものが存在します. 
 
-すると $\varepsilon'\circ\phi_0\circ d_1 = \phi\circ\varepsilon\circ d_1 = \phi\circ 0 = 0$ より, $\Im(\phi_0\circ d_1) \subseteq \Ker(\varepsilon') = \Im(d'_1)$.
+すると
+\[
+\varepsilon'\circ\phi_0\circ d_1 = \phi\circ\varepsilon\circ d_1 = \phi\circ 0 = 0
+\]
+より
+\[
+\Im(\phi_0\circ d_1) \subseteq \Ker(\varepsilon') = \Im(d'_1).
+\]
 よって $d'_1 : P'_1 \rightarrow \Im(d'_1) \rightarrow 0$という全射と$\phi_0\circ d_1: P_1 \rightarrow \Im(d'_1)$
 という写像に対して, $P'_1$の射影性から$\phi_1: P_1 \rightarrow P'_1$で$d'_1\circ \phi_1 = \phi_0\circ d_1$であるものが存在します.
 これを繰り返すことで上記図式を可換にする鎖写像$\{\phi_n\}$を構成できます. $\{\phi_n\}$を$\phi$の持ち上げということにしましょう.
-\vspace{2cm}
-
 
 $g_n = \phi_n - \phi'_n$としましょう. これは$\phi-\phi = 0$写像の持ち上げとなっています. $s_{-1} = 0$として,
 $s_0: P_0 \rightarrow P'_1$を構成します. 
@@ -497,11 +501,9 @@ $g_1 = s_1\circ d'_2 + s_0\circ d_1$. これを繰り返すことで $\{s_n\}$ �
 \subsection{$\Ext$}
 漸く$\Ext$の定義にたどり着きました.
 $R$加群$P, Q$に対して$\Ext$を次のように定義します. $P$の射影分解$(P_n, d_n, \varepsilon)$
-
-\begin{equation*}
+\[
 \ldots \rightarrow P_n \xrightarrow[d_n]{} P_{n-1} \rightarrow \ldots \rightarrow P_0 \xrightarrow[\varepsilon]{} P \rightarrow 0
-\end{equation*}
-
+\]
 を一つとり, $d_0 = 0$として$X = \{\Hom(P_n, Q), d_{n^\star}\}$を考えます($P$を取り除きます).
 この鎖複体に対して$\Hom(, Q)$を適用すると$0\rightarrow \Hom(P_0, Q) \rightarrow \Hom(P_1, Q) \rightarrow \ldots$
 という双対鎖複体を構成でき, このコホモロジーを$\Ext$とします. つまり
@@ -517,25 +519,25 @@ $\Ext^0(P, Q) = \Ker(d_{0^\star}) = \Im(\varepsilon^\star) = \Hom(P, Q)$が成�
 
 $R$がPIDのとき,\ref{sc:proj_module}節の最後に書いたように
 
-\begin{equation*}
+\[
 0 \rightarrow P_1 \xrightarrow[d]{} P_0 \xrightarrow[\varepsilon]{} P \rightarrow 0
-\end{equation*}
-
+\]
 という射影分解に対して$\Ext$を考えることができます. そうすると
-
-\begin{equation*}
+\[
 0 \rightarrow \Hom(P_0, Q) \xrightarrow[d^\star]{} \Hom(P_1, Q) \xrightarrow[0^\star]{} 0
-\end{equation*}
-
+\]
 という鎖複体なので
-$\displaystyle \Ext^1(P, Q) = \Ker(0^\star)/\Im(d^\star) = \Hom(P_1, Q)/\Im(d^\star) = \Coker(d^\star)$.
-$\Ext^n(P, Q) = 0$ (for $n \geq 2$)となります. 
+\begin{align*}
+& \Ext^1(P, Q) = \Ker(0^\star)/\Im(d^\star) = \Hom(P_1, Q)/\Im(d^\star) = \Coker(d^\star),\\
+& \Ext^n(P, Q) = 0  \text{ for } n \geq 2
+\end{align*}
+となります. 
 
 ここで, Silvermanの論文に出てくる$\Ext$の表現との関係を見てみましょう. Silvermanのところでは
 
 \begin{eqnarray}
 \label{eq:silverman_ext_def}
-\begin{array}{c}
+\begin{array}{l}
 \Ext(P, Q)\mbox{の元}fはf: P\times P \rightarrow Qで, \\
 f(x, y) - f(x, y+z) - f(x+y, z) - f(y, z) = 0\mbox{を満たすもの.}\\
 \mbox{ただし, }f\sim f' \Leftrightarrow ある g:P\rightarrow Qで(f-f')(x, y) = g(x+y) - g(x) - g(y)
@@ -547,17 +549,25 @@ f(x, y) - f(x, y+z) - f(x+y, z) - f(y, z) = 0\mbox{を満たすもの.}\\
 で$\varepsilon(\sigma(p)) = p$となる$\sigma$をとることが出来ます. この$\sigma$は準同型である必要はありません.
 
 $x, y \in P$に対して
-$\varepsilon(\sigma(x+y) - \sigma(x) - \sigma(y)) = (\varepsilon\circ\sigma)(x+y) - (\varepsilon\circ\sigma)(x) - (\varepsilon\circ\sigma)(y) = 0$.
+\[
+\varepsilon(\sigma(x+y) - \sigma(x) - \sigma(y)) = (\varepsilon\circ\sigma)(x+y) - (\varepsilon\circ\sigma)(x) - (\varepsilon\circ\sigma)(y) = 0.
+\]
+
 つまり$\sigma(x+y) - \sigma(x) - \sigma(y) \in \Ker(\varepsilon) = \Im(d)$. よって$z\in P_1$の元で
 $d(z) = \sigma(x+y) - \sigma(x) - \sigma(y)$となるものが唯一定まります. この対応を$\lambda(x, y) = z$とかくことにします.
-$\lambda: P\times P \rightarrow P_1$. $d(\lambda(x, y)) = \sigma(x+y) - \sigma(x) - \sigma(y)$.
+\begin{align*}
+& \lambda: P\times P \rightarrow P_1,\\
+& d(\lambda(x, y)) = \sigma(x+y) - \sigma(x) - \sigma(y).
+\end{align*}
 
 $\Ext^1(P, Q)$の元の代表$f\in\Hom(P_1, Q)$をとってきて, この$\lambda$との合成$\tilde{f} = f\circ\lambda$を考えると
 $\tilde{f} : P \times P \rightarrow Q$で$f(x, y) - f(x, y+z) + f(x+y, z) - f(y, z) = 0$となることがすぐわかります.
 
 また, $\Im(d^\star)$の元は$g: P_0 \rightarrow Q$を用いて$g\circ d: P_1 \rightarrow Q$で表せます. よって,
-$\tilde{(g\circ d)} (x, y) = g\circ d(\lambda(x, y)) = g(\sigma(x+y) - \sigma(x) - \sigma(y))$.\\
-つまり$f' = g\circ\sigma$とおくと$\tilde{(g\circ d)}(x, y) = g'(x+y) - g'(x) = g'(y)$となります. 
+\[
+\widetilde{(g\circ d)} (x, y) = g\circ d(\lambda(x, y)) = g(\sigma(x+y) - \sigma(x) - \sigma(y)).
+\]
+つまり$f' = g\circ\sigma$とおくと$\widetilde{(g\circ d)}(x, y) = g'(x+y) - g'(x) = g'(y)$となります. 
 
 というわけで$\Ext^1(P, Q)$の元を自然に式\ref{eq:silverman_ext_def}の形とみなすことが出来ました. (もちろん全射にはならない).
 
@@ -608,29 +618,58 @@ $R$をPIDとする. $M$と$P$の射影分解をそれぞれ$(\{M', M''\}, d'', \
 \end{equation*}
 \end{lemma}
 
-\begin{itemize}
-\item[1. ($N', \varepsilon'$の定義)]\ $N' := M'+P'$とします. さらに $\pi: N'=M'+P'\ni(m', p') \rightarrow m' \in M'$.
-$\iota:P'\ni p'\rightarrow (0, p') \in N'$とします. すると $0 \rightarrow M' \rightarrow N' \rightarrow P' \rightarrow 0$
+\mydescription{
+\item[1. ($N', \varepsilon'$の定義)] $N' := M'+P'$とします.
+さらに
+\begin{align*}
+& \pi: N'=M'+P'\ni(m', p') \rightarrow m' \in M',\\
+& \iota:P'\ni p'\rightarrow (0, p') \in N'
+\end{align*}
+とします. すると $0 \rightarrow M' \rightarrow N' \rightarrow P' \rightarrow 0$
 は完全. $\pi\circ \psi' = \id_{M'}$. $\phi'\circ\iota = \id_{P'}$.
 
 全射 $\phi: N\rightarrow P$と$\varepsilon: P'\rightarrow P$と$P'$の射影性からある$f: P'\rightarrow N$で
 $\varepsilon = \phi\circ f$となるものが存在. $\varepsilon':N' \rightarrow N$を
 $\varepsilon'=\psi\circ\varepsilon''\circ\pi+f\circ\phi'$とします.
 
-\item[2. (可換性)]\ $\varepsilon'\circ\psi' = \psi\circ\varepsilon''\circ\pi\circ\psi' + f\circ\phi'\circ\psi' = \psi\circ\varepsilon''$.
+\item[2. (可換性)] $\varepsilon'\circ\psi' = \psi\circ\varepsilon''\circ\pi\circ\psi' + f\circ\phi'\circ\psi' = \psi\circ\varepsilon''$.
 $\phi\circ\varepsilon' = \phi\circ\psi\circ\varepsilon''\circ+\phi\circ f\circ\phi' = \varepsilon\circ\phi'$
 
-\item[3. ($\varepsilon'$の全射性)]\ $n\in N$をとる. $\varepsilon$が全射なので
-$\exists p' \in P' \suchthat \varepsilon(p') = \phi(n)$. $\phi(n-\varepsilon'(\iota(p'))) = \varepsilon(p') - \varepsilon\circ\phi'\circ\iota(p') = \varepsilon(p') - \varepsilon(p') = 0$. よって $\exists m \in M \suchthat \psi'(m') = n-\varepsilon'(\iota(p'))$. $\varepsilon''$が全射なので$\exists m'\in M' \suchthat \varepsilon''(m') = m$.\\
-よって $\varepsilon'(\psi'(m')) + \iota(p') = \psi\circ\varepsilon''\circ\pi\psi'(m') + f\circ\phi'\psi'(m') + \varepsilon'(\iota(p')) = \psi\circ\varepsilon''(m') + \varepsilon'(\iota(p')) = \psi(m) + \varepsilon'(\iota(p')) = n$.
+\item[3. ($\varepsilon'$の全射性)] $n\in N$をとる. $\varepsilon$が全射なので
+\begin{align*}
+& \exists p' \in P' \suchthat \varepsilon(p') = \phi(n).\\
+& \phi(n-\varepsilon'(\iota(p'))) = \varepsilon(p') - \varepsilon\circ\phi'\circ\iota(p') = \varepsilon(p') - \varepsilon(p') = 0.
+\end{align*}
+よって
+\[
+\exists m \in M \suchthat \psi'(m') = n-\varepsilon'(\iota(p')).
+\]
+$\varepsilon''$が全射なので
+\[
+\exists m'\in M' \suchthat \varepsilon''(m') = m.
+\]
+よって
+\begin{align*}
+\varepsilon'(\psi'(m')) + \iota(p') &= \psi\circ\varepsilon''\circ\pi\psi'(m') + f\circ\phi'\psi'(m') + \varepsilon'(\iota(p'))\\
+& = \psi\circ\varepsilon''(m') + \varepsilon'(\iota(p')) = \psi(m) + \varepsilon'(\iota(p')) = n.
+\end{align*}
+\item[4.] $(M, N, P)$の代わりに今構成した$(M', N', P')$の部分加群$(\Ker(\varepsilon''), \Ker(\varepsilon'), \Ker(\varepsilon))$を置き換えることで$N''$を構成できます. 
 
-\item[4. ] $(M, N, P)$の代わりに今構成した$(M', N', P')$の部分加群$(\Ker(\varepsilon''), \Ker(\varepsilon'), \Ker(\varepsilon))$を置き換えることで$N''$を構成できます. 
-
-\item[5. ] $d': N'' \rightarrow \Ker(\varepsilon')$が単射であること. $d'(n'') = 0$とする. $d(\phi''(n'')) = \phi'(d'(n'')) = 0$. $d$は単射なので$\phi''(n'') = 0$. よって$\exists m'' \in M'' \suchthat \psi''(m'') = n''$. $\psi'\circ d''(m'') = d'\circ\psi''(m'') = d'(n'') = 0$. $\psi', d''$が単射なので$m'' = 0$.
+\item[5.] $d': N'' \rightarrow \Ker(\varepsilon')$が単射であること. $d'(n'') = 0$とする.
+\[
+d(\phi''(n'')) = \phi'(d'(n'')) = 0.
+\]
+$d$は単射なので$\phi''(n'') = 0$.
+よって
+\begin{align*}
+& \exists m'' \in M'' \suchthat \psi''(m'') = n'',\\
+& \psi'\circ d''(m'') = d'\circ\psi''(m'') = d'(n'') = 0.
+\end{align*}
+$\psi', d''$が単射なので$m'' = 0$.
 よって$n'' = 0$. $R$がPIDでない場合は左の$0 \rightarrow$が無くて必要なだけ繰り返して延ばします.
-\end{itemize}
+}
 
-\subsection{補題2}
+\subsection{分解型完全列}
 $\Hom(, Q)$の右が完全になるときがあります.
 
 \begin{lemma}
@@ -856,7 +895,11 @@ $\hat{X} := \Ext(X, \GG_m)$と定義し, これを$X$の双対楕円曲線と呼
 \begin{equation*}
 0 \rightarrow \Hom(X[m], \mu_m) \xrightarrow{\delta} \hat{X} \xrightarrow{m*} \hat{X}
 \end{equation*}
-となります. $\Im(\delta) = \Ker(m*) = \Set{x \in \hat{X} | mx = 0} = \hat{X}[m]$ですから準同型定理により$\Hom(X[m], \mu_m) = \hat{X}[m]$という同型を得られます.
+となります.
+\[
+\Im(\delta) = \Ker(m*) = \Set{x \in \hat{X} | mx = 0} = \hat{X}[m]
+\]
+ですから準同型定理により$\Hom(X[m], \mu_m) = \hat{X}[m]$という同型を得られます.
 
 すると$x \in X[m]$, $f \in \hat{X}[m] = \Hom(X[m], \mu_m)$に対してその値$f(x) \in \mu_m$を取るという自然な写像が得られます. 
 
@@ -869,9 +912,18 @@ e_m: X[m] \times \hat{X}[m] \rightarrow \mu_m
 \subsection{$\Pic^0$}
 さて, $\hat{X}$の正体に入る前に, またしばらく準備が必要です. まず因子の定義をしましょう.
 
-$X$を楕円曲線としたとき, $X$の点の形式的有限和$D = \sum a_n(P_n)$をWeil因子といい, その次数を$\deg D = \sum a_n$で定義します. $X$の因子全体の集合を$\Div(X)$と書きます. 因子の和を$D + D' = \sum a_n(P_n) + \sum a'_n (P'_n)$とすることで$\Div(X)$はAbel群になります. $\Div^0(X) = \Set{D \in \Div(X) | \deg D = 0}$とすると$\Div^0(X)$は$\Div(X)$の部分群です. 
+$X$を楕円曲線としたとき, $X$の点の形式的有限和$D = \sum a_n(P_n)$をWeil因子といい, その次数を$\deg D = \sum a_n$で定義します. $X$の因子全体の集合を$\Div(X)$と書きます.
+因子の和を
+\[
+D + D' = \sum a_n(P_n) + \sum a'_n (P'_n)
+\]
+とすることで$\Div(X)$はAbel群になります.
+\[
+\Div^0(X) = \Set{D \in \Div(X) | \deg D = 0}
+\]
+とすると$\Div^0(X)$は$\Div(X)$の部分群です. 
 
-順序も入れておきましょう. 2つの因子$D, D'$について$D \geq D'$であるとは, $D - D' = \sum a_n(P_n)$について$a_n \geq 0 \mathrm{\ for\ all\ } n$とします.
+順序も入れておきましょう. 2つの因子$D, D'$について$D \geq D'$であるとは, $D - D' = \sum a_n(P_n)$について$a_n \geq 0$ for all $n$とします.
 
 $X$上の有理型関数$f(\neq 0,\ \infty) \in M(X)$に対して, $f(z) = 0$となる$z$を零点(zero), $f(z) = \infty$となる点を極(pole)といいます. $f$を$z$の近傍の局所座標でLaurent展開して$f(z) = \sum_{i=s}^\infty a_iz^i$となったとき, $z$がzeroなら$s > 0$, $z$がpoleなら$s < 0$となります. $\ord_z f = s$と書き, $f$の$z$の位数(order)といいます. 
 
@@ -892,11 +944,10 @@ $f, g$を0や$\infty$でない有理型関数とすると$\div(fg) = \div(f) + \
 
 $L(D)$の次元を$l(D)$としましょう. $l(D) := \dim_\CC L(D)$. $D$と$D'$が線形同値なとき($D = D' + \div(f)$), $L(D')$の元に$f$をかけると$L(D)$の元になるので$L(D)$と$L(D')$はベクトル空間として同型になります. 
 
-$X$上の正則な関数は定数関数しかなかったので$L(0) = \CC$となります. 一般的に$L(D)$は有限次元ベクトル空間になるのですが, もっと精密に\\\\
-
-
-\underline{楕円曲線に対する一番簡単なRiemann-Rochの定理(の一部)}: $\deg D > 0$のとき$l(D) = \deg D$.\\
-
+$X$上の正則な関数は定数関数しかなかったので$L(0) = \CC$となります. 一般的に$L(D)$は有限次元ベクトル空間になるのですが, もっと精密に
+\begin{theorem}
+楕円曲線に対する一番簡単なRiemann-Rochの定理(の一部): $\deg D > 0$のとき$l(D) = \deg D$.
+\end{theorem}
 が成り立ちます. Riemann-Rochは楕円曲線だけでなく, 1次元の連結なコンパクトな複素多様体(=Riemann面)でも成り立つ定理です. 
 
 $D$が一点$P$からなる因子$(P)$のとき, $l((P)) = 1$です. 定数関数は$L((P))$の元ですので, $L((P))$は定数関数しかないということです. これは$\CC$上の二重周期関数で一位のpoleを持つものが存在しないことを意味しています. 
