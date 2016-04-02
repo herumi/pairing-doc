@@ -869,9 +869,9 @@ e_m: X[m] \times \hat{X}[m] \rightarrow \mu_m
 \subsection{$\Pic^0$}
 さて, $\hat{X}$の正体に入る前に, またしばらく準備が必要です. まず因子の定義をしましょう.
 
-$X$を楕円曲線としたとき, $X$の点の形式的有限和$\mathcal{D} = \sum a_n(P_n)$をWeil因子といい, その次数を$\deg \mathcal{D} = \sum a_n$で定義します. $X$の因子全体の集合を$\Div(X)$と書きます. 因子の和を$\mathcal{D} + \mathcal{D}' = \sum a_n(P_n) + \sum a'_n (P'_n)$とすることで$\Div(X)$はAbel群になります. $\Div^0(X) = \Set{\mathcal{D} \in \Div(X) | \deg \mathcal{D} = 0}$とすると$\Div^0(X)$は$\Div(X)$の部分群です. 
+$X$を楕円曲線としたとき, $X$の点の形式的有限和$D = \sum a_n(P_n)$をWeil因子といい, その次数を$\deg D = \sum a_n$で定義します. $X$の因子全体の集合を$\Div(X)$と書きます. 因子の和を$D + D' = \sum a_n(P_n) + \sum a'_n (P'_n)$とすることで$\Div(X)$はAbel群になります. $\Div^0(X) = \Set{D \in \Div(X) | \deg D = 0}$とすると$\Div^0(X)$は$\Div(X)$の部分群です. 
 
-順序も入れておきましょう. 2つの因子$\mathcal{D}, \mathcal{D}'$について$\mathcal{D} \geq \mathcal{D}'$であるとは, $\mathcal{D} - \mathcal{D}' = \sum a_n(P_n)$について$a_n \geq 0 \mathrm{\ for\ all\ } n$とします.
+順序も入れておきましょう. 2つの因子$D, D'$について$D \geq D'$であるとは, $D - D' = \sum a_n(P_n)$について$a_n \geq 0 \mathrm{\ for\ all\ } n$とします.
 
 $X$上の有理型関数$f(\neq 0,\ \infty) \in M(X)$に対して, $f(z) = 0$となる$z$を零点(zero), $f(z) = \infty$となる点を極(pole)といいます. $f$を$z$の近傍の局所座標でLaurent展開して$f(z) = \sum_{i=s}^\infty a_iz^i$となったとき, $z$がzeroなら$s > 0$, $z$がpoleなら$s < 0$となります. $\ord_z f = s$と書き, $f$の$z$の位数(order)といいます. 
 
@@ -879,7 +879,7 @@ $\div(f) := \sum \ord_P(f) (P)$と定義すると, $f$のzeroやpoleや有限個
 
 また$f$の重複度を込めたzeroの数とpoleの数は同じである$f$が定める関数体間$M(\PP^1) \rightarrow M(X)$の拡大次数に等しい)ことが示せて, 結果$\deg \div(f) = 0$となります. 
 
-2つの因子$\mathcal{D}, \mathcal{D}'$が線形同値であるとは, ある$f$があって$\mathcal{D} = \mathcal{D} + \div(f)$となるときにいいます.
+2つの因子$D, D'$が線形同値であるとは, ある$f$があって$D = D + \div(f)$となるときにいいます.
 
 $f, g$を0や$\infty$でない有理型関数とすると$\div(fg) = \div(f) + \div(g)$, $\div(f^{-1}) = -\div(f)$であることは容易にわかります. よって $\div: M(X) \rightarrow \Div^0(X)$は準同型写像になり, $\Pic^0(f) := \Div^0(X)/\sim$もAbel群になります. $\Pic$はPicardの略です. 
 
@@ -888,22 +888,22 @@ $f, g$を0や$\infty$でない有理型関数とすると$\div(fg) = \div(f) + \
 \subsection{Riemann-Rochの定理}
 因子がどう大事なのかを見るために少し寄り道します.
 
-天下り的ですがもう少しだけ定義を続けます. 因子$\mathcal{D}$に対して$L(\mathcal{D}) := \Set{f | \div(f) \geq -\mathcal{D}} \cup \{0\}$とします. $L(\mathcal{D})$はベクトル空間になります. なぜなら2つの関数$f, g$に対して$f+g$はzeroは増えることはあってもpoleは打ち消し合う可能性しかないからです.
+天下り的ですがもう少しだけ定義を続けます. 因子$D$に対して$L(D) := \Set{f | \div(f) \geq -D} \cup \{0\}$とします. $L(D)$はベクトル空間になります. なぜなら2つの関数$f, g$に対して$f+g$はzeroは増えることはあってもpoleは打ち消し合う可能性しかないからです.
 
-$L(\mathcal{D})$の次元を$l(\mathcal{D})$としましょう. $l(\mathcal{D}) := \dim_\CC L(\mathcal{D})$. $\mathcal{D}$と$\mathcal{D}'$が線形同値なとき($\mathcal{D} = \mathcal{D}' + \div(f)$), $L(\mathcal{D}')$の元に$f$をかけると$L(\mathcal{D})$の元になるので$L(\mathcal{D})$と$L(\mathcal{D}')$はベクトル空間として同型になります. 
+$L(D)$の次元を$l(D)$としましょう. $l(D) := \dim_\CC L(D)$. $D$と$D'$が線形同値なとき($D = D' + \div(f)$), $L(D')$の元に$f$をかけると$L(D)$の元になるので$L(D)$と$L(D')$はベクトル空間として同型になります. 
 
-$X$上の正則な関数は定数関数しかなかったので$L(0) = \CC$となります. 一般的に$L(\mathcal{D})$は有限次元ベクトル空間になるのですが, もっと精密に\\\\
+$X$上の正則な関数は定数関数しかなかったので$L(0) = \CC$となります. 一般的に$L(D)$は有限次元ベクトル空間になるのですが, もっと精密に\\\\
 
 
-\underline{楕円曲線に対する一番簡単なRiemann-Rochの定理(の一部)}: $\deg \mathcal{D} > 0$のとき$l(D) = \deg \mathcal{D}$.\\
+\underline{楕円曲線に対する一番簡単なRiemann-Rochの定理(の一部)}: $\deg D > 0$のとき$l(D) = \deg D$.\\
 
 が成り立ちます. Riemann-Rochは楕円曲線だけでなく, 1次元の連結なコンパクトな複素多様体(=Riemann面)でも成り立つ定理です. 
 
-$\mathcal{D}$が一点$P$からなる因子$(P)$のとき, $l((P)) = 1$です. 定数関数は$L((P))$の元ですので, $L((P))$は定数関数しかないということです. これは$\CC$上の二重周期関数で一位のpoleを持つものが存在しないことを意味しています. 
+$D$が一点$P$からなる因子$(P)$のとき, $l((P)) = 1$です. 定数関数は$L((P))$の元ですので, $L((P))$は定数関数しかないということです. これは$\CC$上の二重周期関数で一位のpoleを持つものが存在しないことを意味しています. 
 
 この定理を使って楕円曲線を射影空間の部分多様体として実現してみましょう.
 
-まず楕円曲線の点$P$を固定して$\mathcal{D} = n(P)$という因子を考えてみると, Riemann-Rochの定理から$n > 0$のとき$l(n(P)) = n$となります.
+まず楕円曲線の点$P$を固定して$D = n(P)$という因子を考えてみると, Riemann-Rochの定理から$n > 0$のとき$l(n(P)) = n$となります.
 
 $L(2(P))$は2次元で定数関数1意外の元$f$をとると$L(2(P)) = \langle1, f\rangle$となります. 
 
@@ -942,42 +942,42 @@ $\phi: X \ni x \rightarrow (f(x):g(x):1) \in \PP^2$としましょう.
 \subsection{$\Pic^0$と$X$}
 実は楕円曲線$X$に対して$\Pic^0(X)$は$X$自身になることが示せます.
 
-$\deg \mathcal{D} = 0$とします. $\mathcal{O}$を楕円曲線の単位元として, $\mathcal{D} + (0)$という因子を考えると$\deg(\mathcal{D} + (\mathcal{O})) = 1$. Riemann-Rochの定理より$l(\mathcal{D} + (\mathcal{O})) = 1$. よってある$f \in M(X)$があって$\mathcal{D}' := \div(f) + \mathcal{D} + (\mathcal{O}) \geq 0$. $\deg \mathcal{D}' = 1$で, 全ての点で0以上なので結局$\mathcal{D}'$は1点$P_\mathcal{D}$からなる因子$(P_\mathcal{D})$であることが分かります. すると$\mathcal{D} = (P_\mathcal{D}) - \div(f) - (\mathcal{O}) \sim (P_\mathcal{D}) - (\mathcal{O})$.
+$\deg D = 0$とします. $O$を楕円曲線の単位元として, $D + (O)$という因子を考えると$\deg(D + (O)) = 1$. Riemann-Rochの定理より$l(D + (O)) = 1$. よってある$f \in M(X)$があって$D' := \div(f) + D + (O) \geq 0$. $\deg D' = 1$で, 全ての点で0以上なので結局$D'$は1点$P_D$からなる因子$(P_D)$であることが分かります. すると$D = (P_D) - \div(f) - (O) \sim (P_D) - (O)$.
 
-この$P_\mathcal{D}$は$\mathcal{D}$から一意に定まります. なぜなら$(P) - (\mathcal{O}) \sim \mathcal{D} \sim (P') - (\mathcal{O})$とすると$(P)\sim(P')$. つまりある$f\in M(X)$があって$\div(f) = (P) - (P')$. これは$f$が$P$で1位のzero, $P'$で1位のpoleを持つということです. そうすると$X \ni x \rightarrow (f(x):1) \in \PP^1$という写像は全単射正則写像になって$X$が$\PP^1$になってしまいます. というわけで
+この$P_D$は$D$から一意に定まります. なぜなら$(P) - (O) \sim D \sim (P') - (O)$とすると$(P)\sim(P')$. つまりある$f\in M(X)$があって$\div(f) = (P) - (P')$. これは$f$が$P$で1位のzero, $P'$で1位のpoleを持つということです. そうすると$X \ni x \rightarrow (f(x):1) \in \PP^1$という写像は全単射正則写像になって$X$が$\PP^1$になってしまいます. というわけで
 
 \begin{equation*}
-\phi: \Pic^0(X) \ni \mathcal{D} \rightarrow P_\mathcal{D} \in X
+\phi: \Pic^0(X) \ni D \rightarrow P_D \in X
 \end{equation*}
 
-という写像を構成できました. $\phi(\mathcal{D} + \mathcal{D}') = \phi(\mathcal{D}) + \phi(\mathcal{D}')$は容易に示せます. $P_\mathcal{D}$はもっと具体的に構成法を示せます.
+という写像を構成できました. $\phi(D + D') = \phi(D) + \phi(D')$は容易に示せます. $P_D$はもっと具体的に構成法を示せます.
 
-$P, Q \in X$とし, $X$上の点加算として$R = P+Q$とします. $f(x, y) = ax+by+c$を$P, Q$を通る直線の式とすると, $f(P) = f(Q) = f(-R) = 0$. よって$\div(f) = (P) + (Q) + (-R) - 3(\mathcal{O})$. $g(x, y) = dx+e$を$R, \mathcal{O}$を通る直線の式とすると$\div(g) = (R) + (-R) - 2(\mathcal{O})$. よって$\div(f/g) = (P) + (Q) - (R) - (\mathcal{O})$. つまり$((P) - (\mathcal{O})) + ((Q) - (\mathcal{O})) \sim (P+Q) - (\mathcal{O})$.
+$P, Q \in X$とし, $X$上の点加算として$R = P+Q$とします. $f(x, y) = ax+by+c$を$P, Q$を通る直線の式とすると, $f(P) = f(Q) = f(-R) = 0$. よって$\div(f) = (P) + (Q) + (-R) - 3(O)$. $g(x, y) = dx+e$を$R, O$を通る直線の式とすると$\div(g) = (R) + (-R) - 2(O)$. よって$\div(f/g) = (P) + (Q) - (R) - (O)$. つまり$((P) - (O)) + ((Q) - (O)) \sim (P+Q) - (O)$.
 
-一般に$\mathcal{D} = \sum a_n(P) \in \Div^0(X)$に対し点加算としての$P_\mathcal{D} = \sum a_n P$をとると$\mathcal{D} \sim (P_\mathcal{D}) - (\mathcal{O})$となることがわかります. 
+一般に$D = \sum a_n(P) \in \Div^0(X)$に対し点加算としての$P_D = \sum a_n P$をとると$D \sim (P_D) - (O)$となることがわかります. 
 
-さて逆写像は$\phi^{-1}(P) = (P) - (\mathcal{O})$となります. よって$X \ni P \rightarrow (P) - (O) \in \Pic^0(X)$は同型となります. 
+さて逆写像は$\phi^{-1}(P) = (P) - (O)$となります. よって$X \ni P \rightarrow (P) - (O) \in \Pic^0(X)$は同型となります. 
 
 \subsection{$\Pic^0$と$\Ext$}
 $\hat{X}$の話に戻ります.
 
-$T \in X$を1つとったとき, $\tau_T : X \ni P \rightarrow P+T \in X$という$T$だけ足す関数を考えます. $\mathcal{D} = (T) - (\mathcal{O}) \in \Pic^0(X) = X$をとり, $\tau_P^*\mathcal{D} = (T-P) - (-P)$とします.
+$T \in X$を1つとったとき, $\tau_T : X \ni P \rightarrow P+T \in X$という$T$だけ足す関数を考えます. $D = (T) - (O) \in \Pic^0(X) = X$をとり, $\tau_P^*D = (T-P) - (-P)$とします.
 
-$\tau_R^*\mathcal{D} - \mathcal{D} = (T-P) - (-P) - (T) + (\mathcal{O})$を考えると点の加算として$T - P + P - T = \mathcal{O}$なのでRiemann-Rochの定理からある$f_{T, R} \in M(X)$があって$\tau_R^*\mathcal{D} - \mathcal{D} = \div(\FF_{T, R})$.
+$\tau_R^*D - D = (T-P) - (-P) - (T) + (O)$を考えると点の加算として$T - P + P - T = O$なのでRiemann-Rochの定理からある$f_{T, R} \in M(X)$があって$\tau_R^*D - D = \div(\FF_{T, R})$.
 この$f$は定数倍を除いてuniqueです.
 
 $\phi: \Pic^0(X) \rightarrow \Ext(X, \GG_m)$を
 \[
-\phi(T)(P, Q) = \frac{f_{T, P}(Q)}{f_{T, P}(\mathcal{O})}
+\phi(T)(P, Q) = \frac{f_{T, P}(Q)}{f_{T, P}(O)}
 \]
-で定義します. 定数倍して$f_{T, P}(\mathcal{O}) = 1$としてもよいです. $T = \mathcal{O}$のときは$f_{D, R} = 1$とします.
+で定義します. 定数倍して$f_{T, P}(O) = 1$としてもよいです. $T = O$のときは$f_{D, R} = 1$とします.
 
 $\phi(T)(P, Q)$が$\Ext$の元であることを確認します.
 
 \begin{eqnarray*}
 \begin{aligned}
-\div(f_{T, P+Q}) &= (T-P-Q) - (-P-Q) - (T) + (\mathcal{O})\\
-&= (T-P-Q) - (-P-Q) - (T-Q) + (-Q) + (T-Q) - (T) - (-Q) + (\mathcal{O})\\
+\div(f_{T, P+Q}) &= (T-P-Q) - (-P-Q) - (T) + (O)\\
+&= (T-P-Q) - (-P-Q) - (T-Q) + (-Q) + (T-Q) - (T) - (-Q) + (O)\\
 &= \div(\tau_Q^*f_P) + \div(f_Q)
 \end{aligned}
 \end{eqnarray*}
@@ -987,16 +987,16 @@ $\phi(T)(P, Q)$が$\Ext$の元であることを確認します.
 \begin{eqnarray*}
 \begin{aligned}
 \frac{\phi(T)(P, Q) }{\phi(T)(P, Q+R)} \cdot \frac{\phi(T)(P+Q, R)}{\phi(T)(Q, R)}
-&= \frac{f_P(Q)}{f_P(\mathcal{O})} \cdot \frac{f_Q(\mathcal{O})}{f_Q(R)} \cdot \frac{f_{P+Q}(R)}{f_{P+Q}(\mathcal{O})} \cdot \frac{f_P(\mathcal{O})}{f_P(Q+R)}\\
+&= \frac{f_P(Q)}{f_P(O)} \cdot \frac{f_Q(O)}{f_Q(R)} \cdot \frac{f_{P+Q}(R)}{f_{P+Q}(O)} \cdot \frac{f_P(O)}{f_P(Q+R)}\\
 &= 1
 \end{aligned}
 \end{eqnarray*}
 
-次に単射を確認します. $\Pic^0(X) \ni \mathcal{D}$をとり, $\div(f_{T, P}) = \tau_P^*\mathcal{D} - \mathcal{D}$とします. ある$g \in M(X)$があって$\displaystyle\phi(T)(P, Q) = f_{T, P}(Q) = \frac{g(P+Q)}{g(P) g(Q)}$とします. $g(0) = 1$としておきましょう.
+次に単射を確認します. $\Pic^0(X) \ni D$をとり, $\div(f_{T, P}) = \tau_P^*D - D$とします. ある$g \in M(X)$があって$\displaystyle\phi(T)(P, Q) = f_{T, P}(Q) = \frac{g(P+Q)}{g(P) g(Q)}$とします. $g(0) = 1$としておきましょう.
 
-$h(Q) := \left(\frac{\tau_P^*g}{g}\right)(Q)$ とすると, $h(Q) = \frac{g(P+Q)}{g(P)g(Q)} = \phi(T)(P, Q)$. $\tau_P^*\mathcal{D} - \mathcal{D} =\tau_P^*\div(g) - \div(g)$. よって$\tau_P^*(\mathcal{D} - \div(g)) = \mathcal{D} - \div(g)$.
+$h(Q) := \left(\frac{\tau_P^*g}{g}\right)(Q)$ とすると, $h(Q) = \frac{g(P+Q)}{g(P)g(Q)} = \phi(T)(P, Q)$. $\tau_P^*D - D =\tau_P^*\div(g) - \div(g)$. よって$\tau_P^*(D - \div(g)) = D - \div(g)$.
 
-任意の$P \in X$について$\tau_P$による引き戻しが変わらないということは$\mathcal{D} - \div(g) = 0$. つまり$\mathcal{D} = \div(g) \sim 0$となり単射となりました. 全射も準同型と同様に(出来ると思う...疲れた...).
+任意の$P \in X$について$\tau_P$による引き戻しが変わらないということは$D - \div(g) = 0$. つまり$D = \div(g) \sim 0$となり単射となりました. 全射も準同型と同様に(出来ると思う...疲れた...).
 
 長々とやってましたが, $\hat{X} = \Ext(X, \GG_m)$と$\Pic^0(X)$と$X$が同一視できることにより, Weilペアリングのそれが
 
