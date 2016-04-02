@@ -730,28 +730,33 @@ well-definedを確認します. 別の$\tilde{y} \in Y \suchthat f'(\tilde{y}) =
 $Y = \Set{X, \phi}$と開集合が2個しか無いときでも$X$は位相空間になります. 逆に$Y$を$X$全ての部分集合としたときも$X$は位相空間になります.
 $R$の普通の開集合は開区間$(a, b)$を組み合わせてできたものです. 無限個の開区間$\displaystyle (1-\frac{1}{n}, 1+\frac{1}{n})$の交わりは$\displaystyle\bigcap(1-\frac{1}{n}, 1+\frac{1}{n}) = \{1\}$となり開集合ではありません. 上記定義の2)が有限個なのはそれを反映しています. 代数多様体で定義されるZariski位相はそれよりもずっと開集合が少ない感じです.
 
-・位相空間$X, Y$があったときに関数$f: X \rightarrow Y$が連続であるとは, $Y$の任意の開集合$U$の引き戻し$f^{-1}(U)$が$X$の開集合であること, でした.\\
+\mydescription{
+\item[関数の連続性] 位相空間$X, Y$があったときに関数$f: X \rightarrow Y$が連続であるとは, $Y$の任意の開集合$U$の引き戻し$f^{-1}(U)$が$X$の開集合なときにいいます.
 この定義は抽象的ですが, $X$が実数や複素数上の関すの素朴な連続の定義に一致します.
 
-・位相空間$X$の部分集合$K$がコンパクトであるとは, $K$の任意の開被覆$\bigcup U_\lambda \supseteq K$があったときに, そこから有限個取り出して覆えることです. $\bigcup^n U_{\lambda_i} \supseteq K$.\\
+\item[コンパクト] 位相空間$X$の部分集合$K$がコンパクトであるとは, $K$の任意の開被覆$\bigcup U_\lambda \supseteq K$があったときに, そこから有限個取り出して覆えることです.
+\[
+\bigcup^n U_{\lambda_i} \supseteq K.
+\]
 $X$が実数などの距離空間のときはコンパクトは有界閉集合に一致します.
 
 位相空間の連続写像$f: X \rightarrow Y$とコンパクト$K\subseteq X$があったとき$f(K)$はコンパクトです.
 
 なぜなら$f(K)$の開被覆があったとすると, それを$f$で引き戻せば$K$の開被覆になり, $K$はコンパクトなので有限個取れるからです.
 
-・$X$がHausdorffであるとは$X$の任意の異なる2点$x, y$に対して$U \in x, V \in y$となる開集合$U, V$があって$U \cap V = \phi$とできることです. 要はどんなに近い2点であってもそれを分ける小さな開集合があるということです.
+\item[Hausdorff] $X$がHausdorffであるとは$X$の任意の異なる2点$x, y$に対して$U \in x, V \in y$となる開集合$U, V$があって$U \cap V = \phi$とできることです. 要はどんなに近い2点であってもそれを分ける小さな開集合があるということです.
 
 $X$がHausdorffであることは$\Delta := \Set{(x, x) | x \in X}$が$X \times X$の中でclosedであることと同値です. Zariski位相はHausdorffではないのですが, Hausdorff的な条件が必要なときに対角写像が"閉"であるという性質を使ってその代わりにすることがあります.
 
-・$f: X \rightarrow Y$が同相(homeomorphic)写像であるとは$f$が連続で, 逆写像$f^{-1}$が存在して$f^{-1}$も連続なことです. 位相空間として同一視できるということです.
+\item[同相] $f: X \rightarrow Y$が同相(homeomorphic)写像であるとは$f$が連続で, 逆写像$f^{-1}$が存在して$f^{-1}$も連続なことです. 位相空間として同一視できるということです.
+}
 
 \subsection{複素多様体}
 複素多様体とは大雑把にいうと局所的に$\CC^n$の開集合と思えて, それの貼りあわせたものであり, つなぎ目も滑らかになっているものです.
 
 複素1変数関数$f$がある開集合$D$の各点で微分可能なとき$D$で正則(holomorphic)といいます. それは各点$z$の近傍($z$を含む開集合)でTaylor展開できることと同値です. $\CC$上正則で有界な関数は定数関数しかありません(Liouvilleの定理). Cauchyの積分定理から示せます.
 
-・ Hausdorff空間$X$が$n$次元多様体であるとは$X$の開被覆$X = \bigcup_{\lambda \in \Lambda} U_\lambda$と各開被覆$U_\lambda$に対して$\CC^n$の開集合への同相写像$\phi_\lambda : U_\lambda \rightarrow \phi_\lambda(U_\lambda) \subseteq \CC^n$があって$U_\lambda \cap U_\mu \neq \phi$のとき$\phi_\mu\circ\phi_\lambda^{-1} : \phi_\lambda(U_\lambda\cap U_\mu) \rightarrow \phi_\mu(U_\lambda\cap U_\mu)$が正則関数, かつ逆写像も正則関数であるものです. 
+ Hausdorff空間$X$が$n$次元多様体であるとは$X$の開被覆$X = \bigcup_{\lambda \in \Lambda} U_\lambda$と各開被覆$U_\lambda$に対して$\CC^n$の開集合への同相写像$\phi_\lambda : U_\lambda \rightarrow \phi_\lambda(U_\lambda) \subseteq \CC^n$があって$U_\lambda \cap U_\mu \neq \phi$のとき$\phi_\mu\circ\phi_\lambda^{-1} : \phi_\lambda(U_\lambda\cap U_\mu) \rightarrow \phi_\mu(U_\lambda\cap U_\mu)$が正則関数, かつ逆写像も正則関数であるものです. 
 
 言葉にするとややこしいですが, 図を書いてみると貼りあわせの感覚が分かると思います. $(U_\lambda, \phi_\lambda)$を局所座標といいます.
 
@@ -763,7 +768,7 @@ $X$上の関数$f$が正則(holomorphic)であるとは, 局所座標を通じ�
 Euclid空間$\CC^{n+1}$の2点$x, y$に同値関係を「$x\sim y\Leftrightarrow $ある$\lambda \in \CC^*$があって$x = \lambda y$」でいれます. ベクトルの向きが同じ点を同一視するということです. 同値関係で割った空間を
 
 \[
-\PP^n = \CC^{n+1} / \sim
+\PP^n = \CC^{n+1}\setminus{\Set{0}} / \sim
 \]
 
 と書き, $n$次射影空間といいます. $\PP^n$は複素多様体になります. $x = (x_0, \ldots, x_n)$の同値類を$(x_0 : \cdots : x_n)$と書くことにします.
@@ -821,11 +826,11 @@ $m$を自然数とし, $X$上の$m$倍写像$m: X \ni x \rightarrow mx \in X$を
 となります. また$m$は全射です.
 
 \section{ペアリング}
-
-\subsection{Weilペアリングの定義}
 基本的な用語がだいたい終わったので(ふぅ), 漸く本題のペアリングの話に戻れます.
 
-$m$を自然数とし, $\GG_m$を$\CC$の乗法群$\CC^* := \CC - \{0\}$とします. $X$を楕円曲線, $X[m] := \{x \in X | mx = 0\}$とします. すると, 次の完全列を得られます. 
+\subsection{Weilペアリングの定義}
+
+$m$を自然数とし, $\GG_m$を$\CC$の乗法群$\CC^* := \CC - \{0\}$とします. $X$を楕円曲線, $X[m] := \Set{x \in X | mx = 0}$とします. すると次の完全列を得られます. 
 
 \begin{equation*}
 0 \rightarrow X[m] \rightarrow X \xrightarrow{m} X \rightarrow 0
