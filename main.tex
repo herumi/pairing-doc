@@ -1,4 +1,4 @@
-%
+% ptex2pdf -l -synctex=1 main.tex
 % original is http://homepage1.nifty.com/herumi/crypt/pairing-def.html
 % TeX by 緑川志穂 @elliptic_shiho
 \documentclass{jsarticle}
@@ -11,13 +11,14 @@
 \usepackage[hyphens]{url}
 %\let\keytop\undefined
 %\let\return\undefined
-\newcommand{\CC}{\CC}
+\newcommand{\CC}{\mathbb{C}}
 \newcommand{\RR}{\mathbb{R}}
 \newcommand{\QQ}{\mathbb{Q}}
 \newcommand{\ZZ}{\mathbb{Z}}
 \newcommand{\NN}{\mathbb{N}}
 \newcommand{\FF}{\mathbb{F}}
-\newcommand{\PP}{\PP}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\GG}{\mathbb{G}}
 \newcommand{\PhiT}{\trans{\Phi}}
 \newcommand{\calN}{{\cal N}}
 \newcommand{\calD}{{\cal D}}
@@ -84,7 +85,7 @@ Pairing 2010のSilverman\footnote{http\://www.thlab.net/pairing2010/invited.html
 
 \hrulefill\\
 
-$R$ を可換環, $M$を$R$加群とします. 可換環は四則演算のうち割り算を考えない集合です. $\mathbb{Z}/m\mathbb{Z}$とか行列の集合とかそんなのです. 
+$R$ を可換環, $M$を$R$加群とします. 可換環は四則演算のうち割り算を考えない集合です. $\ZZ/m\ZZ$とか行列の集合とかそんなのです. 
 $R$加群はそれ自体がアーベル群で,$R$と掛け算ができるものと思ってよいです. $r \in R, m_1, m_2 \in M$があったら$rm_1\in M$で, 
 $r(m_1+m_2) = rm_1+rm_2$が成り立ってたりします. まあ普通成り立ってて欲しいと思う性質が成り立ってます. 詳しい定義は略.
 
@@ -423,7 +424,7 @@ $\Ker(\varepsilon)$は$P_0$の部分群なので$\Im(d_0) = \Ker(\varepsilon)$. 
 \end{eqnarray*}
 が完全列であるとき, $(P_n, d_n, \varepsilon)$を$P$の射影分解といいます. 自由加群は射影加群なので上記の操作により射影分解は常に存在します.
 
-$R$が単項イデアル整域(PID)と呼ばれる都合のよい環であるとき(例えば$\mathbb{Z}$や$\mathbb{Z}/p\mathbb{Z}$), 自由加群の部分加群はまた自由加群, つまり射影加群になることが知られています.
+$R$が単項イデアル整域(PID)と呼ばれる都合のよい環であるとき(例えば$\ZZ$や$\ZZ/p\ZZ$), 自由加群の部分加群はまた自由加群, つまり射影加群になることが知られています.
 
 \# $R$がPIDのとき, 自由であることと射影的であることは同値です.
 
@@ -773,43 +774,43 @@ $X$がHausdorffであることは$\Delta := \left\{(x, x) | x \in X\right\}$が$
 ・$f: X \rightarrow Y$が同相(homeomorphic)写像であるとは$f$が連続で, 逆写像$f^{-1}$が存在して$f^{-1}$も連続なことです. 位相空間として同一視できるということです.
 
 \section{複素多様体}
-複素多様体とは大雑把にいうと局所的に$\mathbb{C}^n$の開集合と思えて, それの貼りあわせたものであり, つなぎ目も滑らかになっているものです.
+複素多様体とは大雑把にいうと局所的に$\CC^n$の開集合と思えて, それの貼りあわせたものであり, つなぎ目も滑らかになっているものです.
 
 \hrulefill\\
 
-複素1変数関数$f$がある開集合$D$の各点で微分可能なとき$D$で正則(holomorphic)といいます. それは各点$z$の近傍($z$を含む開集合)でTaylor展開できることと同値です. $\mathbb{C}$上正則で有界な関数は定数関数しかありません(Liouvilleの定理). Cauchyの積分定理から示せます.
+複素1変数関数$f$がある開集合$D$の各点で微分可能なとき$D$で正則(holomorphic)といいます. それは各点$z$の近傍($z$を含む開集合)でTaylor展開できることと同値です. $\CC$上正則で有界な関数は定数関数しかありません(Liouvilleの定理). Cauchyの積分定理から示せます.
 
-・ Hausdorff空間$X$が$n$次元多様体であるとは$X$の開被覆$X = \bigcup_{\lambda \in \Lambda} U_\lambda$と各開被覆$U_\lambda$に対して$\mathbb{C}^n$の開集合への同相写像$\phi_\lambda : U_\lambda \rightarrow \phi_\lambda(U_\lambda) \subseteq \mathbb{C}^n$があって$U_\lambda \cap U_\mu \neq \phi$のとき$\phi_\mu\circ\phi_\lambda^{-1} : \phi_\lambda(U_\lambda\cap U_\mu) \rightarrow \phi_\mu(U_\lambda\cap U_\mu)$が正則関数, かつ逆写像も正則関数であるものです. 
+・ Hausdorff空間$X$が$n$次元多様体であるとは$X$の開被覆$X = \bigcup_{\lambda \in \Lambda} U_\lambda$と各開被覆$U_\lambda$に対して$\CC^n$の開集合への同相写像$\phi_\lambda : U_\lambda \rightarrow \phi_\lambda(U_\lambda) \subseteq \CC^n$があって$U_\lambda \cap U_\mu \neq \phi$のとき$\phi_\mu\circ\phi_\lambda^{-1} : \phi_\lambda(U_\lambda\cap U_\mu) \rightarrow \phi_\mu(U_\lambda\cap U_\mu)$が正則関数, かつ逆写像も正則関数であるものです. 
 
 言葉にするとややこしいですが, 図を書いてみると貼りあわせの感覚が分かると思います. $(U_\lambda, \phi_\lambda)$を局所座標といいます.
 
-$X$上の関数$f$が正則(holomorphic)であるとは, 局所座標を通じて作った$f\circ\phi_\lambda^{-1}: \phi_\lambda(U_\lambda) \rightarrow \mathbb{C}$が正則なときにいいます. 
+$X$上の関数$f$が正則(holomorphic)であるとは, 局所座標を通じて作った$f\circ\phi_\lambda^{-1}: \phi_\lambda(U_\lambda) \rightarrow \CC$が正則なときにいいます. 
 
 \section{射影空間}
 複素多様体の一例で重要な概念である射影空間を定義します.
 
 \hrulefill\\
 
-Euclid空間$\mathbb{C}^{n+1}$の2点$x, y$に同値関係を「$x\sim y\Leftrightarrow $ある$\lambda \in \mathbb{C}^*$があって$x = \lambda y$」でいれます. ベクトルの向きが同じ点を同一視するということです. 同値関係で割った空間を
+Euclid空間$\CC^{n+1}$の2点$x, y$に同値関係を「$x\sim y\Leftrightarrow $ある$\lambda \in \CC^*$があって$x = \lambda y$」でいれます. ベクトルの向きが同じ点を同一視するということです. 同値関係で割った空間を
 
 \begin{equation*}
-\mathbb{P}^n = \frac{\mathbb{C}^{n+1}}{\sim}
+\PP^n = \frac{\CC^{n+1}}{\sim}
 \end{equation*}
 
-と書き, $n$次射影空間といいます. $\mathbb{P}^n$は複素多様体になります. $x = (x_0, \ldots, x_n)$の同値類を$(x_0 : \cdots : x_n)$と書くことにします.
+と書き, $n$次射影空間といいます. $\PP^n$は複素多様体になります. $x = (x_0, \ldots, x_n)$の同値類を$(x_0 : \cdots : x_n)$と書くことにします.
 
-$\mathbb{P}^1$で考えてみましょう. $U = \left\{(x:y) \in \mathbb{P}^1 | y \neq 0\right\}$, $\phi: U \rightarrow \mathbb{C}$を$\phi(x:y) = \frac{x}{y}$とすると, $\phi$はwell-definedで1対1の対応になります. $\mathbb{P}^1 = U\cup V$であり, $U\cap V$では$\mathbb{C}^*$と1対1の対応が付くこともわかって局所座標になります. $\mathbb{P}^1 - U = \left\{(x:y) \in \mathbb{P}^1 | y = 0\right\}$は$ = \left\{(1:0)\right\}$と1点になります. これを$\infty$とかくことにすると$\mathbb{P}^1 = \mathbb{C} \cup \{\infty\}$となります. Riemann球面といいます. 
+$\PP^1$で考えてみましょう. $U = \left\{(x:y) \in \PP^1 | y \neq 0\right\}$, $\phi: U \rightarrow \CC$を$\phi(x:y) = \frac{x}{y}$とすると, $\phi$はwell-definedで1対1の対応になります. $\PP^1 = U\cup V$であり, $U\cap V$では$\CC^*$と1対1の対応が付くこともわかって局所座標になります. $\PP^1 - U = \left\{(x:y) \in \PP^1 | y = 0\right\}$は$ = \left\{(1:0)\right\}$と1点になります. これを$\infty$とかくことにすると$\PP^1 = \CC \cup \{\infty\}$となります. Riemann球面といいます. 
 
-複素多様体$X$から$\mathbb{P}^1$への正則な写像を$X$上の有理型関数といいます. $X$上の有理型関数全体を$M(X)$と書くことにします.
+複素多様体$X$から$\PP^1$への正則な写像を$X$上の有理型関数といいます. $X$上の有理型関数全体を$M(X)$と書くことにします.
 \newpage
 \section{アーベル多様体}
-アーベル多様体を定義します. と言っても大雑把な所でお茶を濁します. とりあえず$\mathbb{C}$上の話で進めます.
+アーベル多様体を定義します. と言っても大雑把な所でお茶を濁します. とりあえず$\CC$上の話で進めます.
 
 \hrulefill\\
 
 $V$を$g$次元複素ベクトル空間, $\Lambda$を$2g$次元$Z$ベクトル空間として$X = V/\Lambda$を$g$次元複素トーラスと言います. 複素トーラスには自然に足し算の構造が入ります. 
 
-$V$の基底を$e_1, \ldots, e_g$, $\Lambda$の基底を$\lambda_1, \ldots, \lambda_{2g}$として, $\lambda_i = \lambda_{1i}e_1 + \ldots + \lambda_{gi}e_g\ (\lambda_{ji} \in \mathbb{C})$とかいたとき$g$行$2g$列の行列$\Pi = (\lambda_{ji})$を周期行列といいます.
+$V$の基底を$e_1, \ldots, e_g$, $\Lambda$の基底を$\lambda_1, \ldots, \lambda_{2g}$として, $\lambda_i = \lambda_{1i}e_1 + \ldots + \lambda_{gi}e_g\ (\lambda_{ji} \in \CC)$とかいたとき$g$行$2g$列の行列$\Pi = (\lambda_{ji})$を周期行列といいます.
 
 複素トーラス$X$の周期行列$\Pi$に対してある非退化交代行列$A \in M_{2g}(Z)\ (A = -^tA)$が存在して, 
 \begin{itemize}
@@ -835,49 +836,49 @@ $V$の基底を$e_1, \ldots, e_g$, $\Lambda$の基底を$\lambda_1, \ldots, \lam
 
 \hrulefill\\
 
-$\pi: \mathbb{C}\rightarrow X := \mathbb{C}/\Lambda$を$\pi(x) := x \mod \Lambda$とします. 単に$\Lambda$だけずれた値を同一視するということです.
+$\pi: \CC\rightarrow X := \CC/\Lambda$を$\pi(x) := x \mod \Lambda$とします. 単に$\Lambda$だけずれた値を同一視するということです.
 
-楕円曲線$X$に位相を入れましょう. 「$U\subseteq X$がopen $\Leftrightarrow$ $\pi^{-1}(U)$が$\mathbb{C}$の中でopen」と定義します. 更に$\pi: \mathbb{C} \rightarrow X$は連続になります(ほぼ自明).
+楕円曲線$X$に位相を入れましょう. 「$U\subseteq X$がopen $\Leftrightarrow$ $\pi^{-1}(U)$が$\CC$の中でopen」と定義します. 更に$\pi: \CC \rightarrow X$は連続になります(ほぼ自明).
 
 $X$はHausdorffです. まあこれも容易でしょう.
 
-$K := \{a+b\lambda \in \mathbb{C} | a, b \in [0, 1]\}$とすると$K$は$C$の中でコンパクト(有界閉集合)で, $\pi$が連続ですからその像である$X = \pi(K)$はコンパクトです.
+$K := \{a+b\lambda \in \CC | a, b \in [0, 1]\}$とすると$K$は$C$の中でコンパクト(有界閉集合)で, $\pi$が連続ですからその像である$X = \pi(K)$はコンパクトです.
 
-$\mathbb{C}$の中の開集合$U$を十分小さくとると$\Lambda$ずれた値が入らないようにもできます. その範囲内では$\pi|_U: U \rightarrow \pi(U) \subseteq X$は1対1の対応がつき逆写像も連続である(homeomorphic)ことがわかります. つまり$X$は局所的には$\mathbb{C}$の開集合と同じと思えるということです. 貼り合わせ部分も問題なくできて, これにより$X$はコンパクト1次元複素多様体になります.
+$\CC$の中の開集合$U$を十分小さくとると$\Lambda$ずれた値が入らないようにもできます. その範囲内では$\pi|_U: U \rightarrow \pi(U) \subseteq X$は1対1の対応がつき逆写像も連続である(homeomorphic)ことがわかります. つまり$X$は局所的には$\CC$の開集合と同じと思えるということです. 貼り合わせ部分も問題なくできて, これにより$X$はコンパクト1次元複素多様体になります.
 
 また加算や逆元(マイナス操作)も正則にできることがわかります.
 
-楕円曲線$X$上の関数は$\mathbb{C}$上の関数で$f(x+a+b\lambda) = f(x)$, $a, b \in\mathbb{Z}$, $\Lambda = \langle1, \lambda\rangle$を満たす関数とみなせます. $f$を$\mathbb{C}$上の二重周期関数と呼んだりします.
+楕円曲線$X$上の関数は$\CC$上の関数で$f(x+a+b\lambda) = f(x)$, $a, b \in\ZZ$, $\Lambda = \langle1, \lambda\rangle$を満たす関数とみなせます. $f$を$\CC$上の二重周期関数と呼んだりします.
 
-$m$を自然数とし, $X$上の$m$倍写像$m: X \ni x \rightarrow mx \in X$を考えると$m(x+y) = mx+my$なので準同型写像です. $\Ker(m)$は$m$倍して0になる点ですが, $\Lambda = \mathbb{Z} + \mathbb{Z}\lambda$なので$\Ker(m) = \left\{\frac{a}{m} + \frac{b}{m}\in X | a, b \in \mathbb{Z}\right\} = (\mathbb{Z}/m\mathbb{Z})^2$となります. また$m$は全射です. 
+$m$を自然数とし, $X$上の$m$倍写像$m: X \ni x \rightarrow mx \in X$を考えると$m(x+y) = mx+my$なので準同型写像です. $\Ker(m)$は$m$倍して0になる点ですが, $\Lambda = \ZZ + \ZZ\lambda$なので$\Ker(m) = \left\{\frac{a}{m} + \frac{b}{m}\in X | a, b \in \ZZ\right\} = (\ZZ/m\ZZ)^2$となります. また$m$は全射です. 
 
 \section{Weilペアリング}
 基本的な用語がだいたい終わったので(ふぅ), 漸く本題のペアリングの話に戻れます.
 
 \hrulefill\\
 
-$m$を自然数とし, $\mathbb{G}_m$を$\mathbb{C}$の乗法群$\mathbb{C}^* := \mathbb{C} - \{0\}$とします. $X$を楕円曲線, $X[m] := \{x \in X | mx = 0\}$とします. すると, 次の完全列を得られます. 
+$m$を自然数とし, $\GG_m$を$\CC$の乗法群$\CC^* := \CC - \{0\}$とします. $X$を楕円曲線, $X[m] := \{x \in X | mx = 0\}$とします. すると, 次の完全列を得られます. 
 
 \begin{equation*}
 0 \rightarrow X[m] \rightarrow X \xrightarrow{m} X \rightarrow 0
 \end{equation*}
 
-$m : X \rightarrow X$は$m$倍写像です. $\mathbb{G}_m$への$\Hom$を考えることでExtの完全列を使って次の完全列が得られます. 
-$\mathbb{G}_m$が乗法群なので行き先は$+$ではなく$*$で表現することに注意. 
+$m : X \rightarrow X$は$m$倍写像です. $\GG_m$への$\Hom$を考えることでExtの完全列を使って次の完全列が得られます. 
+$\GG_m$が乗法群なので行き先は$+$ではなく$*$で表現することに注意. 
 
 \begin{equation*}
-0 \rightarrow \Hom(X, \mathbb{G}_m) \rightarrow \Hom(X, \mathbb{G}_m) \rightarrow \Hom(X[m], \mathbb{G}_m) \rightarrow \Ext(X, \mathbb{G}_m) \rightarrow \Ext(X, \mathbb{G}_m) \rightarrow \Ext(X[m], \mathbb{G}_m)
+0 \rightarrow \Hom(X, \GG_m) \rightarrow \Hom(X, \GG_m) \rightarrow \Hom(X[m], \GG_m) \rightarrow \Ext(X, \GG_m) \rightarrow \Ext(X, \GG_m) \rightarrow \Ext(X[m], \GG_m)
 \end{equation*}
 
-$\Hom(X, \mathbb{G}_m)$は$X$から$\mathbb{G}_m$への正則で準同型の写像全体です. $f\in\Hom(X, \mathbb{G}_m$をとると$X$はコンパクトなので$f(X) \subseteq\mathbb{G}_m$はコンパクト, つまり$\mathbb{C}$内で有界. $f$は$\mathbb{C}$上の周期関数とみなせます. すると$\mathbb{C}$上の有界な正則関数は定数しかないので$f = \mathrm{const}$となります. 準同型なので$f(0) = \mathrm{const} = 1$. よって$\Hom(X, \mathbb{G}_m) = \{0\}$となります. 上記長完全列のうち必要な部分を抜き出すと
+$\Hom(X, \GG_m)$は$X$から$\GG_m$への正則で準同型の写像全体です. $f\in\Hom(X, \GG_m$をとると$X$はコンパクトなので$f(X) \subseteq\GG_m$はコンパクト, つまり$\CC$内で有界. $f$は$\CC$上の周期関数とみなせます. すると$\CC$上の有界な正則関数は定数しかないので$f = \mathrm{const}$となります. 準同型なので$f(0) = \mathrm{const} = 1$. よって$\Hom(X, \GG_m) = \{0\}$となります. 上記長完全列のうち必要な部分を抜き出すと
 
 \begin{equation*}
-0 \rightarrow \Hom(X[m], \mathbb{G}_m) \xrightarrow{\delta} \Ext(X, \mathbb{G}_m) \xrightarrow{m*} \Ext(X, \mathbb{G}_m)
+0 \rightarrow \Hom(X[m], \GG_m) \xrightarrow{\delta} \Ext(X, \GG_m) \xrightarrow{m*} \Ext(X, \GG_m)
 \end{equation*}
 
-となります. $f \in \Hom(X[m], \mathbb{G}_m)$, $x \in X[m]$について$1 = f(0) = f(mx) = f(x)^m$. だから$f(x) \in \mu_m = \left\{x \in \mathbb{C} | x^m = 1\right\}$. つまり$\Hom(X[m], \mathbb{G}_m) = \Hom(X[m], \mu_m)$.
+となります. $f \in \Hom(X[m], \GG_m)$, $x \in X[m]$について$1 = f(0) = f(mx) = f(x)^m$. だから$f(x) \in \mu_m = \left\{x \in \CC | x^m = 1\right\}$. つまり$\Hom(X[m], \GG_m) = \Hom(X[m], \mu_m)$.
 
-$\hat{X} := \Ext(X, \mathbb{G}_m)$と定義し, これを$X$の双対楕円曲線と呼ぶことにすると上の列は
+$\hat{X} := \Ext(X, \GG_m)$と定義し, これを$X$の双対楕円曲線と呼ぶことにすると上の列は
 
 \begin{equation*}
 0 \rightarrow \Hom(X[m], \mu_m) \xrightarrow{\delta} \hat{X} \xrightarrow{m*} \hat{X}
@@ -905,7 +906,7 @@ $X$上の有理型関数$f(\neq 0,\ \infty) \in M(X)$に対して, $f(z) = 0$と
 
 $\div(f) := \sum \ord_P(f) (P)$と定義すると, $f$のzeroやpoleや有限個しかありません. なぜなら無限個あったとすると$X$はコンパクトなので集積点ができて, 一致の定理からそれは定数関数で0か$\infty$になってしまうからです. よって$\div(f)$は$X$の因子となります. 
 
-また$f$の重複度を込めたzeroの数とpoleの数は同じである$f$が定める関数体間$M(\mathbb{P}^1) \rightarrow M(X)$の拡大次数に等しい)ことが示せて, 結果$\deg \div(f) = 0$となります. 
+また$f$の重複度を込めたzeroの数とpoleの数は同じである$f$が定める関数体間$M(\PP^1) \rightarrow M(X)$の拡大次数に等しい)ことが示せて, 結果$\deg \div(f) = 0$となります. 
 
 2つの因子$\mathcal{D}, \mathcal{D}'$が線形同値であるとは, ある$f$があって$\mathcal{D} = \mathcal{D} + \div(f)$となるときにいいます.
 
@@ -920,16 +921,16 @@ $f, g$を0や$\infty$でない有理型関数とすると$\div(fg) = \div(f) + \
 
 天下り的ですがもう少しだけ定義を続けます. 因子$\mathcal{D}$に対して$L(\mathcal{D}) := \left\{f | \div(f) \geq -\mathcal{D}\right\} \cup \{0\}$とします. $L(\mathcal{D})$はベクトル空間になります. なぜなら2つの関数$f, g$に対して$f+g$はzeroは増えることはあってもpoleは打ち消し合う可能性しかないからです.
 
-$L(\mathcal{D})$の次元を$l(\mathcal{D})$としましょう. $l(\mathcal{D}) := \dim_\mathbb{C} L(\mathcal{D})$. $\mathcal{D}$と$\mathcal{D}'$が線形同値なとき($\mathcal{D} = \mathcal{D}' + \div(f)$), $L(\mathcal{D}')$の元に$f$をかけると$L(\mathcal{D})$の元になるので$L(\mathcal{D})$と$L(\mathcal{D}')$はベクトル空間として同型になります. 
+$L(\mathcal{D})$の次元を$l(\mathcal{D})$としましょう. $l(\mathcal{D}) := \dim_\CC L(\mathcal{D})$. $\mathcal{D}$と$\mathcal{D}'$が線形同値なとき($\mathcal{D} = \mathcal{D}' + \div(f)$), $L(\mathcal{D}')$の元に$f$をかけると$L(\mathcal{D})$の元になるので$L(\mathcal{D})$と$L(\mathcal{D}')$はベクトル空間として同型になります. 
 
-$X$上の正則な関数は定数関数しかなかったので$L(0) = \mathbb{C}$となります. 一般的に$L(\mathcal{D})$は有限次元ベクトル空間になるのですが, もっと精密に\\\\
+$X$上の正則な関数は定数関数しかなかったので$L(0) = \CC$となります. 一般的に$L(\mathcal{D})$は有限次元ベクトル空間になるのですが, もっと精密に\\\\
 
 
 \underline{楕円曲線に対する一番簡単なRiemann-Rochの定理(の一部)}: $\deg \mathcal{D} > 0$のとき$l(D) = \deg \mathcal{D}$.\\
 
 が成り立ちます. Riemann-Rochは楕円曲線だけでなく, 1次元の連結なコンパクトな複素多様体(=Riemann面)でも成り立つ定理です. 
 
-$\mathcal{D}$が一点$P$からなる因子$(P)$のとき, $l((P)) = 1$です. 定数関数は$L((P))$の元ですので, $L((P))$は定数関数しかないということです. これは$\mathbb{C}$上の二重周期関数で一位のpoleを持つものが存在しないことを意味しています. 
+$\mathcal{D}$が一点$P$からなる因子$(P)$のとき, $l((P)) = 1$です. 定数関数は$L((P))$の元ですので, $L((P))$は定数関数しかないということです. これは$\CC$上の二重周期関数で一位のpoleを持つものが存在しないことを意味しています. 
 
 この定理を使って楕円曲線を射影空間の部分多様体として実現してみましょう.
 
@@ -958,14 +959,14 @@ g^2 = f^3 + af + b
 
 と式変形できます. これはいわゆる普通の楕円曲線の定義方程式です.
 
-$\phi: X \ni x \rightarrow (f(x):g(x):1) \in \mathbb{P}^2$としましょう.
+$\phi: X \ni x \rightarrow (f(x):g(x):1) \in \PP^2$としましょう.
 
-実は$\phi$は正則で1対1, $\phi$の像$\phi(X)$は$\mathbb{P}^2$の中でコンパクトな部分多様体になることが分かります. そうすると1次元複素トーラスであった$X$は式 $\ref{eq:elliptic_curve}$ で定義された多様体と同じものとみなせます.
+実は$\phi$は正則で1対1, $\phi$の像$\phi(X)$は$\PP^2$の中でコンパクトな部分多様体になることが分かります. そうすると1次元複素トーラスであった$X$は式 $\ref{eq:elliptic_curve}$ で定義された多様体と同じものとみなせます.
 
 つまり, 楕円曲線は($f$と$g$を$x$と$y$という名前に置き換えると)$y^2 = x^3+ax+b$という
 形しかないということがわかります. 何故, 暗号の入門書などで唐突にこんな方程式が現れ, それしか考えないのかというのは, (1次元の範囲では)そういうものしかなかったから, なのでした.
 
-一般に何かわからない$X$を調べるとき, $X$を直接調べるのではなく$X$上の関数全体を考えるという方法があります. たとえば$X$がベクトル空間の時は$\Hom_\mathbb{C}(X, \mathbb{C})$は$X$に同型でした. 楕円曲線のときは正則な関数は定数関数しかなかったので, poleを持ってもよい関数を少しずつ増やすことで, それから作られる$\mathbb{P}^n$への写像を考えてみたのです. 実は楕円曲線でなくもっと一般のコンパクトRiemann平面に対しても同様に$\mathbb{P}^n$の部分多様体として実現できます.
+一般に何かわからない$X$を調べるとき, $X$を直接調べるのではなく$X$上の関数全体を考えるという方法があります. たとえば$X$がベクトル空間の時は$\Hom_\CC(X, \CC)$は$X$に同型でした. 楕円曲線のときは正則な関数は定数関数しかなかったので, poleを持ってもよい関数を少しずつ増やすことで, それから作られる$\PP^n$への写像を考えてみたのです. 実は楕円曲線でなくもっと一般のコンパクトRiemann平面に対しても同様に$\PP^n$の部分多様体として実現できます.
 
 とりあえず, 因子とそれから作られるベクトル空間に関する次元の定理があるといろいろできるというのが少しは伝わったでしょうか.
 \newpage
@@ -976,7 +977,7 @@ $\phi: X \ni x \rightarrow (f(x):g(x):1) \in \mathbb{P}^2$としましょう.
 
 $\deg \mathcal{D} = 0$とします. $\mathcal{O}$を楕円曲線の単位元として, $\mathcal{D} + (0)$という因子を考えると$\deg(\mathcal{D} + (\mathcal{O})) = 1$. Riemann-Rochの定理より$l(\mathcal{D} + (\mathcal{O})) = 1$. よってある$f \in M(X)$があって$\mathcal{D}' := \div(f) + \mathcal{D} + (\mathcal{O}) \geq 0$. $\deg \mathcal{D}' = 1$で, 全ての点で0以上なので結局$\mathcal{D}'$は1点$P_\mathcal{D}$からなる因子$(P_\mathcal{D})$であることが分かります. すると$\mathcal{D} = (P_\mathcal{D}) - \div(f) - (\mathcal{O}) \sim (P_\mathcal{D}) - (\mathcal{O})$.
 
-この$P_\mathcal{D}$は$\mathcal{D}$から一意に定まります. なぜなら$(P) - (\mathcal{O}) \sim \mathcal{D} \sim (P') - (\mathcal{O})$とすると$(P)\sim(P')$. つまりある$f\in M(X)$があって$\div(f) = (P) - (P')$. これは$f$が$P$で1位のzero, $P'$で1位のpoleを持つということです. そうすると$X \ni x \rightarrow (f(x):1) \in \mathbb{P}^1$という写像は全単射正則写像になって$X$が$\mathbb{P}^1$になってしまいます. というわけで
+この$P_\mathcal{D}$は$\mathcal{D}$から一意に定まります. なぜなら$(P) - (\mathcal{O}) \sim \mathcal{D} \sim (P') - (\mathcal{O})$とすると$(P)\sim(P')$. つまりある$f\in M(X)$があって$\div(f) = (P) - (P')$. これは$f$が$P$で1位のzero, $P'$で1位のpoleを持つということです. そうすると$X \ni x \rightarrow (f(x):1) \in \PP^1$という写像は全単射正則写像になって$X$が$\PP^1$になってしまいます. というわけで
 
 \begin{equation*}
 \phi: \Pic^0(X) \ni \mathcal{D} \rightarrow P_\mathcal{D} \in X
@@ -997,10 +998,10 @@ $\hat{X}$の話に戻ります.
 
 $T \in X$を1つとったとき, $\tau_T : X \ni P \rightarrow P+T \in X$という$T$だけ足す関数を考えます. $\mathcal{D} = (T) - (\mathcal{O}) \in \Pic^0(X) = X$をとり, $\tau_P^*\mathcal{D} = (T-P) - (-P)$とします.
 
-$\tau_R^*\mathcal{D} - \mathcal{D} = (T-P) - (-P) - (T) + (\mathcal{O})$を考えると点の加算として$T - P + P - T = \mathcal{O}$なのでRiemann-Rochの定理からある$f_{T, R} \in M(X)$があって$\tau_R^*\mathcal{D} - \mathcal{D} = \div(\mathbb{F}_{T, R})$.
+$\tau_R^*\mathcal{D} - \mathcal{D} = (T-P) - (-P) - (T) + (\mathcal{O})$を考えると点の加算として$T - P + P - T = \mathcal{O}$なのでRiemann-Rochの定理からある$f_{T, R} \in M(X)$があって$\tau_R^*\mathcal{D} - \mathcal{D} = \div(\FF_{T, R})$.
 この$f$は定数倍を除いてuniqueです.
 
-$\phi: \Pic^0(X) \rightarrow \Ext(X, \mathbb{G}_m)$を$\displaystyle\phi(T)(P, Q) = \frac{f_{T, P}(Q)}{f_{T, P}(\mathcal{O})}$で定義します. 定数倍して$f_{T, P}(\mathcal{O}) = 1$としてもよいです. $T = \mathcal{O}$のときは$f_{D, R} = 1$とします.
+$\phi: \Pic^0(X) \rightarrow \Ext(X, \GG_m)$を$\displaystyle\phi(T)(P, Q) = \frac{f_{T, P}(Q)}{f_{T, P}(\mathcal{O})}$で定義します. 定数倍して$f_{T, P}(\mathcal{O}) = 1$としてもよいです. $T = \mathcal{O}$のときは$f_{D, R} = 1$とします.
 
 $\phi(T)(P, Q)$が$\Ext$の元であることを確認します.
 
@@ -1028,7 +1029,7 @@ $h(Q) := \left(\frac{\tau_P^*g}{g}\right)(Q)$ とすると, $h(Q) = \frac{g(P+Q)
 
 任意の$P \in X$について$\tau_P$による引き戻しが変わらないということは$\mathcal{D} - \div(g) = 0$. つまり$\mathcal{D} = \div(g) \sim 0$となり単射となりました. 全射も準同型と同様に(出来ると思う...疲れた...).
 
-長々とやってましたが, $\hat{X} = \Ext(X, \mathbb{G}_m)$と$\Pic^0(X)$と$X$が同一視できることにより, Weilペアリングのそれが
+長々とやってましたが, $\hat{X} = \Ext(X, \GG_m)$と$\Pic^0(X)$と$X$が同一視できることにより, Weilペアリングのそれが
 
 \begin{equation*}
 e_m: X[m] \times X[m] \rightarrow \mu_m
