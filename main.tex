@@ -72,19 +72,14 @@
 
 \tableofcontents
 
-\hrulefill\\
-
 \section*{はじめに}
 Pairing 2010のSilverman\footnote{http\://www.thlab.net/pairing2010/invited.html\#silverman}の公演で, 暗号の本に載ってるのと
 違った, より抽象的な定義の説明があったので多少(どころではない分量になってしまったけど)補足説明してみます.\\
 群, 環, 準同型定理, 位相空間, 多様体のおさらいは駆け足でしますが、別途勉強しておいたほうがよいでしょう.
 \footnote{このテキストは\url{http://homepage1.nifty.com/herumi/crypt/pairing-def.html}を元に緑川さんがTeXに書き起こされました.}
-\newpage
 
 \section{基底}
 まずはいくつかの基本的な用語から.
-
-\hrulefill\\
 
 $R$ を可換環, $M$を$R$加群とします. 可換環は四則演算のうち割り算を考えない集合です. $\ZZ/m\ZZ$とか行列の集合とかそんなのです. 
 $R$加群はそれ自体がアーベル群で,$R$と掛け算ができるものと思ってよいです. $r \in R, m_1, m_2 \in M$があったら$rm_1\in M$で, 
@@ -105,8 +100,6 @@ $$
 
 \section{素朴なペアリング}
 ペアリングの性質をおさらいします.
-
-\hrulefill\\
 
 $e: M\times M \rightarrow R$で$R$双線形なものをペアリングということにします  片側を固定すると線形写像ということです.つまり
 
@@ -155,8 +148,6 @@ Homomorphic Encryption\footnote{http://portal.acm.org/citation.cfm?id=1431888}�
 キーワードは 「短い完全列があれば長い完全列を作れる.」\\
 $M, N, P, Q$を$R$加群とします.
 
-\hrulefill\\
-
 $\Hom_R(M, N) := \left\{f: M \rightarrow N | fはR加群として準同型写像\right\}$ とします(以降$\Hom(M, N)$と略記). 
 $f(am+bm') = a f(m) + bf(m')$が成り立つということです.
 
@@ -192,8 +183,6 @@ $rf$という関数の線形性を示す必要があります(自分でやるこ
 
 \section{$\Hom$から$\Hom$への写像}
 $P, Q, N$が$R$加群だとすると$\Hom(P, Q)$, $\Hom(N, Q)$という$R$加群を作れました. この$\Hom$から$\Hom$への写像を考えてみます.
-
-\hrulefill\\
 
 $\varphi: N \rightarrow P$という準同型写像があったとしましょう. すると$f \in \Hom(P, Q)$は$P$から$Q$への写像なので$\varphi$と合成すると
 $f\circ \varphi$は$N$から$Q$への写像になります. 
@@ -238,11 +227,8 @@ $$
 ここまでの流れをまとめます. $P, Q, N$が$R$加群で準同型 $\varphi: N \rightarrow P$ があると準同型写像
 $\varphi^*: \Hom(P, Q) \rightarrow \Hom(N, Q)$を構成できる. 
 
-\newpage
 \section{kernelとimage}
 まず単射と全射の復習をしましょう.
-
-\hrulefill\\
 
 $f: P \rightarrow Q$が単射であるとは, $f(p) = 0\Leftrightarrow p = 0$\\
 $f: P \rightarrow Q$が全射であるとは, 任意の$q\in Q$に対してある$p\in P$が存在して$f(p) = q$\\
@@ -271,8 +257,6 @@ $f: P \rightarrow Q$があると, $P/\Ker(f) = \Im(f)$が成り立ちます(準�
 
 \section{完全系列}
 加群の列を考えます. 結構抽象度が高くなってくるのでちゃんと手を動かしてみてください.
-
-\hrulefill\\
 
 $R$加群$P_1, P_2, \ldots$の列とその間の準同型写像$f_1: P_1 \rightarrow P_2, \ldots$があったときに$\Im(f_i) = \Ker(f_{i+1})$
 が成り立つ時その列を完全(系)列(exact sequence)といいます.
@@ -323,8 +307,6 @@ $\Im(f) = \Ker(0_Q)$ということです. $0_Q$は$Q$の全ての元を$0$に�
 
 \section{$\Hom$の左完全性}
 前節の完全列と$\Hom$との関連を考えてみましょう.
-
-\hrulefill\\
 
 加群の間の写像があると$\Hom$を作れました. 式\ref{eq:pairing_exact_seq}の他に加群$Q$を考えます. そうすると
 $\varphi^*: \Hom(P, Q \rightarrow \Hom(N, Q)$という写像を作れました. 同様に
@@ -379,14 +361,10 @@ $\Im(\varphi^*) = \Ker(\psi^*)$となり完全性の証明が終わりました.
 \subsection{$\Ext$の定義のための準備}
 しばらく$\Ext$の定義のためのホモロジー代数の用語と基本的な定理を証明し続けます. 面倒だと思う人はさくっと$\Ext$まで飛ばしてください.
 
-\hrulefill\\
-
 \subsection{射影加群と射影分解}
 \label{sc:proj_module}
 $R$加群$P$が射影的であるとは任意の$R$加群$A, B$と全射準同型写像$f: A\rightarrow B$, 準同型写像$h: P\rightarrow B$があったとき, 
 ある準同型写像$g: P\rightarrow A$があって$h = f\circ g$とできるときをいいます.
-
-\hrulefill\\
 
 \begin{equation*}
 \xymatrix{
@@ -435,8 +413,6 @@ $0\rightarrow P_1 \rightarrow P_0 \rightarrow P \rightarrow 0$という射影分
 \subsection{コホモロジー}
 $R$加群の列とその間の準同型写像の組$X = \left\{X^n, d^n\right\}$が$d^{n+1} \circ d^n = 0$を満たすとき, $X$を双対鎖複体(dual chain complex)といいます.
 
-\hrulefill\\
-
 \begin{eqnarray*}
 \begin{aligned}
 0 \xrightarrow[d^{-1} = 0]{} \ldots \xrightarrow[d^{n+1}]{} X^{n+1} \xrightarrow[d^n]{} X^n \xrightarrow[d^{n-1}]{} X^{n-1} \rightarrow \ldots
@@ -466,8 +442,6 @@ $X=\left\{X^n, d^n\right\}$, $Y = \left\{Y^n, e^n\right\}$を双対鎖複体, $f
 $g=\left\{g^n\right\}$を$X$から$Y$への鎖準同型とします. $f$と$g$が鎖ホモトープであるとは, ある$R$準同型写像$s=\left\{s^n: X^n\rightarrow Y^{n+1}\right\}$があって, 
 $f^n-g^n = s^{n+1} \circ d^n+e^{n-1} \circ s^n$となるものをいう($s^{-1} = 0$).
 
-\hrulefill\\
-
 これはちょっと面倒で図を省略します. $f$と$g$の差が上から下への矢印が右行って左斜め下に行くものと左斜めに行ってみぎにいくものとの和でかけるということです.
 
 鎖ホモトープという条件は同値関係$\sim$になります. $Z^n(X) \ni x$に対して$f^n(x) - g^n(x) = s^{n+1} \circ d^n + e^{n-1}\circ s^n(x) = e^{n-1}\circ s^n(x) \in B^n(Y)$. 
@@ -479,8 +453,6 @@ $H^n(X)$と$H^n(Y)$は同型となります.
 
 \subsection{射影分解の一意性}
 射影分解はある種の一意性を持ちます. $P$と$P'$の射影分解を$(P_n, d_n, \varepsilon), (P'_n, d'_n, \varepsilon')$とします.
-
-\hrulefill\\
 
 \begin{equation*}
 \xymatrix{
@@ -659,8 +631,6 @@ $\exists p' \in P' \suchthat \varepsilon(p') = \phi(n)$. $\phi(n-\varepsilon'(\i
 \subsection{補題2}
 $\Hom(, Q)$の右が完全になるときがあります.
 
-\newpage
-
 \begin{lemma}
 ($R$はPIDでなくてよい) $R$加群$M, N, P$に対する完全列があり, $\tau\circ i = \id_M$とすると, $R$加群$Q$に対して
 
@@ -741,8 +711,6 @@ well-definedを確認します. 別の$\tilde{y} \in Y \suchthat f'(\tilde{y}) =
 \section{位相空間}
 ホモロジー代数の話はひとまずそれぐらいにして, 次に位相空間まわりの最低限の定義を復習しておきます. またもや無味乾燥な定義の列...
 
-\hrulefill\\
-
 実数や複素数上の開集合は直感的ですが, 距離の定義できない空間でも遠い, 近いという概念を考えたいときに抽象的な位相空間が定義されました.
 
 ・集合$X$とその部分集合の族$Y$の組$(X, Y)$が位相空間であるとは
@@ -777,8 +745,6 @@ $X$がHausdorffであることは$\Delta := \left\{(x, x) | x \in X\right\}$が$
 \section{複素多様体}
 複素多様体とは大雑把にいうと局所的に$\CC^n$の開集合と思えて, それの貼りあわせたものであり, つなぎ目も滑らかになっているものです.
 
-\hrulefill\\
-
 複素1変数関数$f$がある開集合$D$の各点で微分可能なとき$D$で正則(holomorphic)といいます. それは各点$z$の近傍($z$を含む開集合)でTaylor展開できることと同値です. $\CC$上正則で有界な関数は定数関数しかありません(Liouvilleの定理). Cauchyの積分定理から示せます.
 
 ・ Hausdorff空間$X$が$n$次元多様体であるとは$X$の開被覆$X = \bigcup_{\lambda \in \Lambda} U_\lambda$と各開被覆$U_\lambda$に対して$\CC^n$の開集合への同相写像$\phi_\lambda : U_\lambda \rightarrow \phi_\lambda(U_\lambda) \subseteq \CC^n$があって$U_\lambda \cap U_\mu \neq \phi$のとき$\phi_\mu\circ\phi_\lambda^{-1} : \phi_\lambda(U_\lambda\cap U_\mu) \rightarrow \phi_\mu(U_\lambda\cap U_\mu)$が正則関数, かつ逆写像も正則関数であるものです. 
@@ -789,8 +755,6 @@ $X$上の関数$f$が正則(holomorphic)であるとは, 局所座標を通じ�
 
 \section{射影空間}
 複素多様体の一例で重要な概念である射影空間を定義します.
-
-\hrulefill\\
 
 Euclid空間$\CC^{n+1}$の2点$x, y$に同値関係を「$x\sim y\Leftrightarrow $ある$\lambda \in \CC^*$があって$x = \lambda y$」でいれます. ベクトルの向きが同じ点を同一視するということです. 同値関係で割った空間を
 
@@ -803,11 +767,8 @@ Euclid空間$\CC^{n+1}$の2点$x, y$に同値関係を「$x\sim y\Leftrightarrow
 $\PP^1$で考えてみましょう. $U = \left\{(x:y) \in \PP^1 | y \neq 0\right\}$, $\phi: U \rightarrow \CC$を$\phi(x:y) = x / y$とすると, $\phi$はwell-definedで1対1の対応になります. $\PP^1 = U\cup V$であり, $U\cap V$では$\CC^*$と1対1の対応が付くこともわかって局所座標になります. $\PP^1 - U = \left\{(x:y) \in \PP^1 | y = 0\right\}$は$ = \left\{(1:0)\right\}$と1点になります. これを$\infty$とかくことにすると$\PP^1 = \CC \cup \{\infty\}$となります. Riemann球面といいます. 
 
 複素多様体$X$から$\PP^1$への正則な写像を$X$上の有理型関数といいます. $X$上の有理型関数全体を$M(X)$と書くことにします.
-\newpage
 \section{アーベル多様体}
 アーベル多様体を定義します. と言っても大雑把な所でお茶を濁します. とりあえず$\CC$上の話で進めます.
-
-\hrulefill\\
 
 $V$を$g$次元複素ベクトル空間, $\Lambda$を$2g$次元$Z$ベクトル空間として$X = V/\Lambda$を$g$次元複素トーラスと言います. 複素トーラスには自然に足し算の構造が入ります. 
 
@@ -835,8 +796,6 @@ $V$の基底を$e_1, \ldots, e_g$, $\Lambda$の基底を$\lambda_1, \ldots, \lam
 \section{楕円曲線}
 1次元複素トーラス(=1次元アーベル多様体)を楕円曲線といいます.
 
-\hrulefill\\
-
 $\pi: \CC\rightarrow X := \CC/\Lambda$を$\pi(x) := x \mod \Lambda$とします. 単に$\Lambda$だけずれた値を同一視するということです.
 
 楕円曲線$X$に位相を入れましょう. 「$U\subseteq X$がopen $\Leftrightarrow$ $\pi^{-1}(U)$が$\CC$の中でopen」と定義します. 更に$\pi: \CC \rightarrow X$は連続になります(ほぼ自明).
@@ -859,8 +818,6 @@ $m$を自然数とし, $X$上の$m$倍写像$m: X \ni x \rightarrow mx \in X$を
 
 \section{Weilペアリング}
 基本的な用語がだいたい終わったので(ふぅ), 漸く本題のペアリングの話に戻れます.
-
-\hrulefill\\
 
 $m$を自然数とし, $\GG_m$を$\CC$の乗法群$\CC^* := \CC - \{0\}$とします. $X$を楕円曲線, $X[m] := \{x \in X | mx = 0\}$とします. すると, 次の完全列を得られます. 
 
@@ -901,8 +858,6 @@ e_m: X[m] \times \hat{X}[m] \rightarrow \mu_m
 \section{$\Pic^0$}
 さて, $\hat{X}$の正体に入る前に, またしばらく準備が必要です. まず因子の定義をしましょう.
 
-\hrulefill\\
-
 $X$を楕円曲線としたとき, $X$の点の形式的有限和$\mathcal{D} = \sum a_n(P_n)$をWeil因子といい, その次数を$\deg \mathcal{D} = \sum a_n$で定義します. $X$の因子全体の集合を$\Div(X)$と書きます. 因子の和を$\mathcal{D} + \mathcal{D}' = \sum a_n(P_n) + \sum a'_n (P'_n)$とすることで$\Div(X)$はAbel群になります. $\Div^0(X) = \left\{\mathcal{D} \in \Div(X) | \deg \mathcal{D} = 0\right\}$とすると$\Div^0(X)$は$\Div(X)$の部分群です. 
 
 順序も入れておきましょう. 2つの因子$\mathcal{D}, \mathcal{D}'$について$\mathcal{D} \geq \mathcal{D}'$であるとは, $\mathcal{D} - \mathcal{D}' = \sum a_n(P_n)$について$a_n \geq 0 \mathrm{\ for\ all\ } n$とします.
@@ -921,8 +876,6 @@ $f, g$を0や$\infty$でない有理型関数とすると$\div(fg) = \div(f) + \
 
 \section{Riemann-Rochの定理}
 因子がどう大事なのかを見るために少し寄り道します.
-
-\hrulefill\\
 
 天下り的ですがもう少しだけ定義を続けます. 因子$\mathcal{D}$に対して$L(\mathcal{D}) := \left\{f | \div(f) \geq -\mathcal{D}\right\} \cup \{0\}$とします. $L(\mathcal{D})$はベクトル空間になります. なぜなら2つの関数$f, g$に対して$f+g$はzeroは増えることはあってもpoleは打ち消し合う可能性しかないからです.
 
@@ -974,11 +927,8 @@ $\phi: X \ni x \rightarrow (f(x):g(x):1) \in \PP^2$としましょう.
 一般に何かわからない$X$を調べるとき, $X$を直接調べるのではなく$X$上の関数全体を考えるという方法があります. たとえば$X$がベクトル空間の時は$\Hom_\CC(X, \CC)$は$X$に同型でした. 楕円曲線のときは正則な関数は定数関数しかなかったので, poleを持ってもよい関数を少しずつ増やすことで, それから作られる$\PP^n$への写像を考えてみたのです. 実は楕円曲線でなくもっと一般のコンパクトRiemann平面に対しても同様に$\PP^n$の部分多様体として実現できます.
 
 とりあえず, 因子とそれから作られるベクトル空間に関する次元の定理があるといろいろできるというのが少しは伝わったでしょうか.
-\newpage
 \section{$\Pic^0$と$X$}
 実は楕円曲線$X$に対して$\Pic^0(X)$は$X$自身になることが示せます.
-
-\hrulefill\\
 
 $\deg \mathcal{D} = 0$とします. $\mathcal{O}$を楕円曲線の単位元として, $\mathcal{D} + (0)$という因子を考えると$\deg(\mathcal{D} + (\mathcal{O})) = 1$. Riemann-Rochの定理より$l(\mathcal{D} + (\mathcal{O})) = 1$. よってある$f \in M(X)$があって$\mathcal{D}' := \div(f) + \mathcal{D} + (\mathcal{O}) \geq 0$. $\deg \mathcal{D}' = 1$で, 全ての点で0以上なので結局$\mathcal{D}'$は1点$P_\mathcal{D}$からなる因子$(P_\mathcal{D})$であることが分かります. すると$\mathcal{D} = (P_\mathcal{D}) - \div(f) - (\mathcal{O}) \sim (P_\mathcal{D}) - (\mathcal{O})$.
 
@@ -998,8 +948,6 @@ $P, Q \in X$とし, $X$上の点加算として$R = P+Q$とします. $f(x, y) =
 
 \section{$\Pic^0$と$\Ext$}
 $\hat{X}$の話に戻ります.
-
-\hrulefill\\
 
 $T \in X$を1つとったとき, $\tau_T : X \ni P \rightarrow P+T \in X$という$T$だけ足す関数を考えます. $\mathcal{D} = (T) - (\mathcal{O}) \in \Pic^0(X) = X$をとり, $\tau_P^*\mathcal{D} = (T-P) - (-P)$とします.
 
