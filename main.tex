@@ -8,20 +8,38 @@
 \usepackage{amscd}
 \usepackage{xypic}
 \usepackage{ascmac}
-\usepackage{url}
-\let\keytop\undefined
-\let\return\undefined
-\def\Im{\mathrm{Im}}
-\def\Ker{\mathrm{Ker}}
-\def\Hom{\mathrm{Hom}}
-\def\Ext{\mathrm{Ext}}
-\def\id{\mathrm{id}}
-\def\Coker{\mathrm{Coker}}
+\usepackage[hyphens]{url}
+%\let\keytop\undefined
+%\let\return\undefined
+\newcommand{\CC}{\CC}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\PP}{\PP}
+\newcommand{\PhiT}{\trans{\Phi}}
+\newcommand{\calN}{{\cal N}}
+\newcommand{\calD}{{\cal D}}
+\newcommand{\calL}{{\cal L}}
+\newcommand{\calQ}{{\cal Q}}
+\newcommand{\calW}{{\cal W}}
+\newcommand{\half}{\frac{1}{2}}
+\newcommand{\ignore}[1]{}
+
+
+\newcommand{\makeop}[1]{\mathop{\mathrm{#1}}\nolimits}
+\def\Im{\makeop{Im}}
+\def\Ker{\makeop{Ker}}
+\def\Hom{\makeop{Hom}}
+\def\Ext{\makeop{Ext}}
+\def\id{\makeop{id}}
+\def\Coker{\makeop{Coker}}
+\def\Pic{\makeop{Pic}}
+\def\Div{\makeop{Div}}
+\def\div{\makeop{div}}
+\def\ord{\makeop{ord}}
 \def\suchthat{\mathrm{\ s.t.\ }}
-\def\Pic{\mathrm{Pic}}
-\def\Div{\mathrm{Div}}
-\def\div{\mathrm{div}}
-\def\ord{\mathrm{ord}}
 
 \theoremstyle{definition}
 \newtheorem{theorem}{定理}
