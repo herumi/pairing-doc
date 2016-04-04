@@ -81,10 +81,18 @@ Pairing 2010でSilverman\footnote{\url{http://www.thlab.net/pairing2010/invited.
 まずはいくつかの基本的な用語から.
 
 $R$ を可換環, $M$を$R$加群とします. 可換環は四則演算のうち割り算を考えない集合です. $\ZZ/m\ZZ=\Set{0, \dots, m-1}$とか行列の集合とかそんなのです.
-$R$加群はそれ自体がアーベル群であり, かつ$R$と掛け算ができるものと思ってよいです. $r \in R$, $m_1$, $m_2 \in M$があったら$rm_1\in M$で,
-$r(m_1+m_2) = rm_1+rm_2$が成り立ちます. まあ普通成り立ってて欲しいと思う性質が成り立ってます. 詳しい定義は略.
+$R$加群はそれ自体がアーベル群であり, かつ$R$と掛け算ができるものと思ってよいです.
+まあ普通成り立ってて欲しいと思う性質が成り立ってます.
 
-可換環$R$はそれ自体が$R$加群です. また$R$が体だったら$R$加群はベクトル空間になります.
+つまり$r$, $r' \in R$, $m$, $m' \in M$について
+\begin{align*}
+& r(m + m') = rm + rm',\\
+& (r+r')m = rm + r'm,\\
+& (rr')m = r(r'm),\\
+& 1 \cdot m =m.
+\end{align*}
+
+可換環$R$はそれ自体が$R$加群です. また$R$が体だったら$R$加群は$R$ベクトル空間になります.
 ベクトル空間だったら基底があります.
 同様に$R$加群$M$も, その任意の元を有限個の基底で表せるときがあります. すなわち
 \mydescription{
@@ -117,15 +125,19 @@ $e: M\times M \rightarrow R$で$R$双線形なものをペアリングという�
 さて暗号でよく使われるペアリングでは, $M$は2個の基底からなる$R$加群です. 基底を$e_1$, $e_2$とすると$M$の元$x$, $y$は$x = ae_1+be_2$,
 $y = ce_1 + de_2$と書けるので, 線形性から
 \[
-e(x, y) = ab e(e_1, e_1) + ad e(e_1, e_2) + bc e(e_2, e_1) + bd e(e_2, e_2)
+e(x, y) = ac e(e_1, e_1) + ad e(e_1, e_2) + bc e(e_2, e_1) + bd e(e_2, e_2)
 \]
 となります.
 
 $e_{ij} = e(e_i, e_j)$ とすると
 \begin{equation}
 \label{eq:def_pairing}
-e(x, y) = ab e_{11} + ad e_{12} + bc e_{21} + bd e_{22}.
+e(x, y) = ac e_{11} + ad e_{12} + bc e_{21} + bd e_{22}.
 \end{equation}
+とくに歪対称$e(x, y)=-e(y,x)$が成り立つなら$e_{11}=e_{22}=0$, $e_{12}=e_{21}$なので
+\[
+e(x,y)=(ac-bd)e_{12}.
+\]
 
 これは$M$の基底$e_1, e_2$ と適当な$R$の元$e_{ij}$を決めると式\ref{eq:def_pairing}でペアリングを定義してもよいということです.
 となると単なる線形和ですね.
@@ -135,7 +147,7 @@ e(x, y) = ab e_{11} + ad e_{12} + bc e_{21} + bd e_{22}.
 
 $R$を体として, $e_i$の生成する部分加群を$\langle e_i \rangle := \Set{re_i | r \in R}$とします. $M$は$\langle e_1\rangle$
 と$\langle e_2\rangle$の直和なので, 任意の$x\in M$にたいして係数は求められなくてもせめて$x = u+v, u \in \langle e_1\rangle, v \in \langle e_2\rangle$
-と分解できれば何か情報を取れるかもと思ったことがありました. 残念ながら, 実はそういうふうに$x$を部分群の要素に分解できるなら, DH問題が解けてしまうので分解は無理ということがわかりました.
+と分解できれば何か情報を取れるかもと思ったことがありました. 残念ながら, 実はそういうふうに$x$を部分群の要素に分解できるならDH問題が解けてしまうので分解は無理ということがわかりました.
 証明はたいして難しくありません. この定式化をベクトル分解問題とよびました（最初は2002年のISEC, SCIS2003で吉田さんと発表 cf.
 The Vector Decomposition Problem\footnote{\url{http://search.ieice.org/bin/summary.php?id=e93-a_1_188}}）.
 その後Duursma\footnote{\url{http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.73.8064}}や, Galbraith
@@ -237,7 +249,7 @@ $\varphi^*: \Hom(P, Q) \rightarrow \Hom(N, Q)$を構成できる.
 \subsection{kernelとimage}
 まず単射と全射の復習をしましょう.
 \mydescription{
-\item[単射] $f: P \rightarrow Q$が単射であるとは, $p \in P$が$f(p) = 0$である必要十分条件は$p = 0$.
+\item[単射] $f: P \rightarrow Q$が単射であるとは, $p \in P$が$f(p) = 0$である必要十分条件が$p = 0$.
 \item[全射] $f: P \rightarrow Q$が全射であるとは, 任意の$q\in Q$にたいしてある$p\in P$が存在して$f(p) = q$.
 }
 単射は同じものにいくことはない, 全射は全てに行き渡る, というイメージです.
@@ -274,8 +286,8 @@ $P$を$R$加群とします. $P$の部分集合$S$が
 $s \in \Ker(f)$, $r \in R$にたいして$f(rs)=rf(s)=r\times 0=0$なので$rs \in \Ker(f)$となるからです. $\Im(f)$も同様に示せます.
 
 $P$の部分$R$加群$S$があると$P$のある部分集合の集合$R/S=\Set{\overline{r}|\in R}$を考えられます.
-ここで$\overline{r}=\Set{r+r'|r'\in R}$と定義します. $\overline{r}$は$R$の部分集合で$r$を$\overline{r}$の代表元といいます.
-$\overline{r_1}=\overline{r_2} \iff r_1-r_2 \in R$が成り立ちます.
+ここで$\overline{r}=\Set{r+r'|r'\in S}$と定義します（$r+S$とかくこともある）. $\overline{r}$は$R$の部分集合で$r$を$\overline{r}$の代表元といいます.
+$\overline{r_1}=\overline{r_2} \iff r_1-r_2 \in S$が成り立ちます.
 
 $R/S$は自然に$R$加群となり, 商加群といいます.
 \mydescription{
@@ -317,48 +329,38 @@ $\Ker(\overline{f})$はなんでしょうか. $\overline{f}(\overline{p})=f(p)=0
 \subsection{完全系列}
 加群の列を考えます. 結構抽象度が高くなってくるのでちゃんと手を動かしてみてください.
 
-$R$加群$P_1$, $P_2, \ldots$の列とその間の準同型写像$f_1: P_1 \rightarrow P_2, \ldots$があったときに$\Im(f_i) = \Ker(f_{i+1})$
-が成り立つときその列を完全(系)列(exact sequence)といいます.
+$R$加群$P_1$, $P_2, \ldots$の列とその間の準同型写像$f_1: P_1 \rightarrow P_2$, $f_2:P_2 \rightarrow P_3, \ldots$があったときに$\Im(f_i) = \Ker(f_{i+1})$
+が成り立つときその列を完全（系）列（exact sequence）といいます.
 
 たとえば
-\begin{eqnarray*}
-\begin{aligned}
-0 \rightarrow P \xrightarrow{f} Q
-\end{aligned}
-\end{eqnarray*}
-という完全列を考えます. $0$というのは単位元$0$のみからなる加群のことです. $0$から$P$の写像は$0$を$0$に写すもの(一時的に$0_P$と書くことにします)
-しかないので普通省略します.
+\[
+0 \xrightarrow{0_P} P \xrightarrow{f} Q
+\]
+という完全列を考えます. $0$というのは単位元$0$のみからなる加群のことです. $0$から$P$の写像$0_P$は$0$を$0$に写すものです.
+最初なので明記しましたが普通省略します.
 
 さて, 上記の列が完全であるということは$\Im(0_P) = \Ker(f)$が成り立つということです. $\Im(0_P)$は$0$なので$\Ker(f) = 0$つまり$f$が単射であるということの言い換えにすぎません.
 同様に
-
-\begin{eqnarray*}
-\begin{aligned}
-P \xrightarrow{f} Q \rightarrow 0
-\end{aligned}
-\end{eqnarray*}
-
-という完全列を考えてみます. $Q$から$0$への写像もQの全ての元を$0$に写す写像($0_Q$)しかないのでやはり省略します. これが完全だということは
-$\Im(f) = \Ker(0_Q)$ということです. $0_Q$は$Q$の全ての元を$0$に写すのですから$\Ker(0_Q) = Q$です. つまり$\Im(f) = Q$.
+\[
+P \xrightarrow{f} Q \xrightarrow{0_Q} 0
+\]
+という完全列を考えてみます. $Q$から$0$への写像$0_Q$もQの全ての元を$0$に写す写像しかないのでやはり通常は省略します.
+これが完全だということは$\Im(f) = \Ker(0_Q)$ということです.
+$0_Q$は$Q$の全ての元を$0$に写すのですから$\Ker(0_Q) = Q$です. つまり$\Im(f) = Q$.
 これは$f$が全射であることの言い換えです. 単なる言葉遊びが続きますがもう一つ.
 
-\begin{eqnarray*}
-\begin{aligned}
+\[
 0 \rightarrow P \xrightarrow{f} Q \rightarrow 0
-\end{aligned}
-\end{eqnarray*}
-
+\]
 が完全だとどうなるでしょうか. $0 \rightarrow P \rightarrow Q$が完全であることから$f$は単射, $P\rightarrow Q \rightarrow 0$
 が完全であることから$f$は全射ということを意味しているので $f$は全単射, すなわち同型であるということの言い換えです.
 
 ペアリングの定義で重要なのは次の完全列です.
 
-\begin{equation}
+\begin{align}
 \label{eq:pairing_exact_seq}
-\begin{aligned}
-0 \rightarrow M \xrightarrow{\displaystyle\psi} N \xrightarrow{\displaystyle\varphi} P\rightarrow 0
-\end{aligned}
-\end{equation}
+& 0 \rightarrow M \xrightarrow{\displaystyle\psi} N \xrightarrow{\displaystyle\varphi} P\rightarrow 0
+\end{align}
 
 これは$\varphi$が全射, $\psi$が単射, かつ$\Im(\psi) = \Ker(\varphi)$であるということです. 特に$\varphi\circ\psi = 0$.
 
@@ -371,6 +373,10 @@ $\psi^*: \Hom(N, Q) \rightarrow \Hom(M, Q)$という写像も作れます. 実�
 
 \begin{theorem}
 \[
+M \xrightarrow{\displaystyle\psi} N \xrightarrow{\displaystyle\varphi} P\rightarrow 0
+\]
+が完全列なら
+\[
 0 \rightarrow \Hom(P, Q) \xrightarrow{\varphi^*} \Hom(N, Q) \xrightarrow{\psi^*} \Hom(M, Q)
 \]
 が完全列となります.
@@ -379,7 +385,7 @@ $\psi^*: \Hom(N, Q) \rightarrow \Hom(M, Q)$という写像も作れます. 実�
 これを$\Hom(, Q)$の左完全性といいます.
 
 証明しましょう. まず$\varphi^*$は単射です. なぜなら$f \in \Hom(P, Q)$について$\varphi^*(f) = 0$とします. これは任意の$n\in N$について
-$\varphi^*(f)(n) = f(\varphi(n)) = 0$ということですが, $\varphi$は全射なので(完全列の仮定), $\varphi(n)$は$P$の全ての値をとります.
+$\varphi^*(f)(n) = f(\varphi(n)) = 0$ということですが, $\varphi$は全射なので（完全列の仮定）, $\varphi(n)$は$P$の全ての値をとります.
 全ての$P$の値について$f$が0ということは$f$は0写像ということです. つまり$f=0$. $\varphi^*(f) = 0 \Leftrightarrow f = 0$がいえたので
 $\varphi^*$は単射です.
 
@@ -391,7 +397,7 @@ $\varphi^*$は単射です.
 \psi^*\circ\varphi^*(f)(m) &= \psi^*(f\circ\varphi)(m)\\
 &= (f\circ\varphi\circ\psi)(m)\\
 &= f(\varphi(\psi(m)))\\
-&= 0 & (\varphi\circ\psi = 0なので).
+&= 0 & （\varphi\circ\psi = 0なので）.
 \end{aligned}
 \end{eqnarray*}
 これで$\Im(\varphi^*)\subseteq\Ker(\psi^*)$が示せました.
@@ -403,11 +409,11 @@ $\varphi^*$は単射です.
 \psi^*(f)(m) = f(\psi(m)) = 0
 \end{equation}
 
-この条件の元で$f$が$\Im(\varphi^*)$の元であること, すなわちある$g\in\Hom(P, Q)$について$f = \varphi^*(g)$を示す必要があります. 具体的に構成しましょう(ここで少し考えてみてください.)
+この条件の元で$f$が$\Im(\varphi^*)$の元であること, すなわちある$g\in\Hom(P, Q)$について$f = \varphi^*(g)$を示す必要があります. 具体的に構成しましょう（ここで少し考えてみてください）.
 
 任意の$p\in P$について$\varphi$は全射なのである$n\in N$があって$\varphi(n) = p$. このとき$g(p) := f(n)$とします
-(実はこれ, 選択公理なんですが細かいことは気にしない). これはwell-definedです($n$のとり方に寄らず$g(p)$が定まることを示す). なぜなら他の
-$n'\in N$で$\varphi(n') = p$とすると$\varphi(n-n') = 0$. $\Im(\psi) = \Ker(\varphi)$より, ある$m\in M$があって
+(実はこれ, 選択公理なんですが細かいことは気にしない). これはwell-definedです（$n$のとり方に寄らず$g(p)$が定まることを示す）.
+なぜなら他の$n'\in N$で$\varphi(n') = p$とすると$\varphi(n-n') = 0$. $\Im(\psi) = \Ker(\varphi)$より, ある$m\in M$があって
 $\psi(m) = n-n'$. すると式\ref{eq:cond_im_elem}の仮定により$f(n-n') = f(\psi(m)) = 0$. よって$f(n) = f(n')$.
 
 まだ$g: P\rightarrow Q$を構成しただけで, $g\in\Hom(P, Q)$を示したわけではありませんが, それは$g$の作り方から容易に示せます. 以上で
@@ -446,23 +452,23 @@ $\Ker(\varepsilon)$は$P_0$の部分群なので$\Im(d_0) = \Ker(\varepsilon)$. 
 \[
 \ldots \rightarrow P_n \xrightarrow[d_n]{} P_{n-1} \rightarrow \cdots \xrightarrow[d_1]{} P_0 \xrightarrow[\varepsilon]{} P \rightarrow 0
 \]
-という完全列を作ることができます.
+という完全列を作れます.
 
-より一般に$R$加群$P$にたいして, (自由加群とは限らない)射影加群の列$\Set{P_n}$とその間の準同型$\Set{d_n}$が存在し,
+より一般に$R$加群$P$にたいして, （自由加群とは限らない）射影加群の列$\Set{P_n}$とその間の準同型$\Set{d_n}$が存在し,
 \[
 \ldots \rightarrow P_n \xrightarrow[d_n]{} P_{n-1} \rightarrow \cdots \rightarrow P_0 \xrightarrow[\varepsilon]{} P \rightarrow 0
 \]
 が完全列であるとき, $(P_n, d_n, \varepsilon)$を$P$の射影分解といいます. 自由加群は射影加群なので上記の操作により射影分解は常に存在します.
 
-$R$が単項イデアル整域(PID)と呼ばれる都合のよい環であるとき(例えば$\ZZ$や$\ZZ/p\ZZ$), 自由加群の部分加群はまた自由加群, つまり射影加群になることが知られています.
+$R$が単項イデアル整域（PID）と呼ばれる都合のよい環であるとき（例えば$\ZZ$や$\ZZ/p\ZZ$）, 自由加群の部分加群はまた自由加群, つまり射影加群になることが知られています.
 
 （注意）$R$がPIDのとき, 自由であることと射影的であることは同値です.
 
-つまり, 上記の$\Ker(\varepsilon)$が射影的になり, そこで止めることができます. 言い直すと$R$がPIDなら任意の$R$加群$P$について
+つまり, 上記の$\Ker(\varepsilon)$が射影的になり, そこで止まります. 言い直すと$R$がPIDなら任意の$R$加群$P$について
 $0\rightarrow P_1 \rightarrow P_0 \rightarrow P \rightarrow 0$という射影分解が存在します. とりあえず, これを事実として進めましょう.
 
 \subsection{コホモロジー}
-$R$加群の列とその間の準同型写像の組$X = \Set{X^n, d^n}$が$d^{n+1} \circ d^n = 0$を満たすとき, $X$を双対鎖複体(dual chain complex)といいます.
+$R$加群の列とその間の準同型写像の組$X = \Set{X^n, d^n}$が$d^{n+1} \circ d^n = 0$を満たすとき, $X$を双対鎖複体（dual chain complex）といいます.
 
 \[
 0 \xrightarrow[d^{-1} = 0]{} \ldots \xrightarrow[d^{n+1}]{} X^{n+1} \xrightarrow[d^n]{} X^n \xrightarrow[d^{n-1}]{} X^{n-1} \rightarrow \ldots
@@ -578,7 +584,7 @@ $R$がPIDのとき,\ref{sc:proj_module}節の最後に書いたように
 \[
 0 \rightarrow P_1 \xrightarrow[d]{} P_0 \xrightarrow[\varepsilon]{} P \rightarrow 0
 \]
-という射影分解にたいして$\Ext$を考えることができます. そうすると
+という射影分解にたいして$\Ext$を考えられます. そうすると
 \[
 0 \rightarrow \Hom(P_0, Q) \xrightarrow[d^\star]{} \Hom(P_1, Q) \xrightarrow[0^\star]{} 0
 \]
@@ -647,9 +653,9 @@ $R$をPIDとする.
 は完全列である.
 \end{theorem}
 
-(注意) $R$が一般の環のときは最後が$0$ではなくずっと$\Ext$の列が続きます.
+（注意）$R$が一般の環のときは最後が$0$ではなくずっと$\Ext$の列が続きます.
 
-証明しましょう. またしばらくかかるので位相空間などなどまで飛ばして下さい. ここからしばらく$R$がPIDであることを仮定します.
+証明しましょう. またしばらくかかるので位相空間などまで飛ばして下さい. ここからしばらく$R$がPIDであることを仮定します.
 この仮定は殆どのところで不要, あるいは数学的帰納法を用いて証明できます. 図式が煩雑になるため省略します.
 
 \subsection{補題1}
@@ -675,7 +681,7 @@ $R$をPIDとする. $M$と$P$の射影分解をそれぞれ$(\{M', M''\}, d'', \
 \end{lemma}
 
 \mydescription{
-\item[1. ($N', \varepsilon'$の定義)] $N' := M'+P'$とします.
+\item[1. $N', \varepsilon'$の定義] $N' := M'+P'$とします.
 さらに
 \begin{align*}
 & \pi: N'=M'+P'\ni(m', p') \rightarrow m' \in M',\\
@@ -688,10 +694,10 @@ $R$をPIDとする. $M$と$P$の射影分解をそれぞれ$(\{M', M''\}, d'', \
 $\varepsilon = \phi\circ f$となるものが存在. $\varepsilon':N' \rightarrow N$を
 $\varepsilon'=\psi\circ\varepsilon''\circ\pi+f\circ\phi'$とします.
 
-\item[2. (可換性)] $\varepsilon'\circ\psi' = \psi\circ\varepsilon''\circ\pi\circ\psi' + f\circ\phi'\circ\psi' = \psi\circ\varepsilon''$.
+\item[2. 可換性] $\varepsilon'\circ\psi' = \psi\circ\varepsilon''\circ\pi\circ\psi' + f\circ\phi'\circ\psi' = \psi\circ\varepsilon''$.
 $\phi\circ\varepsilon' = \phi\circ\psi\circ\varepsilon''\circ+\phi\circ f\circ\phi' = \varepsilon\circ\phi'$
 
-\item[3. ($\varepsilon'$の全射性)] $n\in N$をとる. $\varepsilon$が全射なので
+\item[3. $\varepsilon'$の全射性] $n\in N$をとる. $\varepsilon$が全射なので
 \begin{align*}
 & \exists p' \in P' \suchthat \varepsilon(p') = \phi(n).\\
 & \phi(n-\varepsilon'(\iota(p'))) = \varepsilon(p') - \varepsilon\circ\phi'\circ\iota(p') = \varepsilon(p') - \varepsilon(p') = 0.
@@ -729,12 +735,12 @@ $\psi', d''$が単射なので$m'' = 0$.
 $\Hom(, Q)$の右が完全になるときがあります.
 
 \begin{lemma}
-($R$はPIDでなくてよい) $R$加群$M, N, P$に対する完全列があり, $\tau\circ i = \id_M$とすると, $R$加群$Q$にたいして
+（$R$はPIDでなくてよい）$R$加群$M, N, P$に対する完全列があり, $\tau\circ i = \id_M$とすると, $R$加群$Q$にたいして
 
 \begin{eqnarray*}
 \begin{aligned}
 0 \rightarrow M &\overset{i}{\underset{\tau}{\rightleftarrows}} N \rightarrow P \rightarrow 0\\
-\Rightarrow 0 &\rightarrow \Hom(P, Q) \rightarrow \Hom(N, Q) \rightarrow \Hom(M, Q) \rightarrow 0 &(完全)
+\Rightarrow 0 &\rightarrow \Hom(P, Q) \rightarrow \Hom(N, Q) \rightarrow \Hom(M, Q) \rightarrow 0 &（完全）
 \end{aligned}
 \end{eqnarray*}
 \end{lemma}
@@ -744,7 +750,7 @@ $\Hom(, Q)$の右が完全になるときがあります.
 
 \subsection{ヘビの補題}
 
-($R$はPIDでなくてよい)
+（$R$はPIDでなくてよい）
 \begin{lemma}[ヘビの補題]
 次の完全列があったときに少し長い完全列を作れます. $X, Y, Z, X', Y', Z'$が$R$加群で
 \begin{equation*}
@@ -768,7 +774,7 @@ $\Hom(, Q)$の右が完全になるときがあります.
 \end{equation*}
 
 \begin{equation*}
-0 \rightarrow \Ker(d) \rightarrow \Ker(d') \rightarrow \Ker(d'') \xrightarrow[\delta]{} \Coker(d) \rightarrow \Coker(d') \rightarrow \Coker(d'') \rightarrow 0\ (完全)
+0 \rightarrow \Ker(d) \rightarrow \Ker(d') \rightarrow \Ker(d'') \xrightarrow[\delta]{} \Coker(d) \rightarrow \Coker(d') \rightarrow \Coker(d'') \rightarrow 0\ （完全）
 \end{equation*}
 \end{lemma}
 
@@ -850,13 +856,13 @@ $X$がHausdorffであることは$\Delta := \Set{(x, x) | x \in X}$が$X \times 
 \subsection{複素多様体}
 複素多様体とは大雑把にいうと局所的に$\CC^n$の開集合と思えて, それの貼りあわせたものであり, つなぎ目も滑らかになっているものです.
 
-複素1変数関数$f$がある開集合$D$の各点で微分可能なとき$D$で正則(holomorphic)といいます. それは各点$z$の近傍($z$を含む開集合)でTaylor展開できることと同値です. $\CC$上正則で有界な関数は定数関数しかありません(Liouvilleの定理). Cauchyの積分定理から示せます.
+複素1変数関数$f$がある開集合$D$の各点で微分可能なとき$D$で正則（holomorphic）といいます. それは各点$z$の近傍（$z$を含む開集合）でTaylor展開できることと同値です. $\CC$上正則で有界な関数は定数関数しかありません（Liouvilleの定理）. Cauchyの積分定理から示せます.
 
  Hausdorff空間$X$が$n$次元多様体であるとは$X$の開被覆$X = \bigcup_{\lambda \in \Lambda} U_\lambda$と各開被覆$U_\lambda$にたいして$\CC^n$の開集合への同相写像$\phi_\lambda : U_\lambda \rightarrow \phi_\lambda(U_\lambda) \subseteq \CC^n$があって$U_\lambda \cap U_\mu \neq \phi$のとき$\phi_\mu\circ\phi_\lambda^{-1} : \phi_\lambda(U_\lambda\cap U_\mu) \rightarrow \phi_\mu(U_\lambda\cap U_\mu)$が正則関数, かつ逆写像も正則関数であるものです.
 
 言葉にするとややこしいですが, 図を書いてみると貼りあわせの感覚が分かると思います. $(U_\lambda, \phi_\lambda)$を局所座標といいます.
 
-$X$上の関数$f$が正則(holomorphic)であるとは, 局所座標を通じて作った$f\circ\phi_\lambda^{-1}: \phi_\lambda(U_\lambda) \rightarrow \CC$が正則なときにいいます.
+$X$上の関数$f$が正則（holomorphic）であるとは, 局所座標を通じて作った$f\circ\phi_\lambda^{-1}: \phi_\lambda(U_\lambda) \rightarrow \CC$が正則なときにいいます.
 
 \subsection{射影空間}
 複素多様体の一例で重要な概念である射影空間を定義します.
@@ -869,7 +875,7 @@ Euclid空間$\CC^{n+1}$の原点でない2点$x, y$に同値関係を「$x\sim y
 
 と書き, $n$次射影空間といいます. $\PP^n$は複素多様体になります. $x = (x_0, \ldots, x_n)$の同値類を$(x_0 : \cdots : x_n)$と書くことにします.
 
-$\PP^1$で考えてみましょう. $U = \Set{(x:y) \in \PP^1 | y \neq 0}$, $\phi: U \rightarrow \CC$を$\phi(x:y) = x / y$とすると, $\phi$はwell-definedで1対1の対応になります. $\PP^1 = U\cup V$であり, $U\cap V$では$\CC^*$と1対1の対応が付くこともわかって局所座標になります. $\PP^1 - U = \Set{(x:y) \in \PP^1 | y = 0}$は$ = \Set{(1:0)}$と1点になります. これを$\infty$とかくことにすると$\PP^1 = \CC \cup \{\infty\}$となります. Riemann球面といいます.
+$\PP^1$で考えてみましょう. $U = \Set{(x:y) \in \PP^1 | y \neq 0}$, $\phi: U \rightarrow \CC$を$\phi(x:y) = x / y$とすると, $\phi$はwell-definedで1対1の対応になります. $\PP^1 = U\cup V$であり, $U\cap V$では$\CC^*$と1対1の対応が付くこともわかって局所座標になります. $\PP^1 - U = \Set{(x:y) \in \PP^1 | y = 0}$は$\Set{(1:0)}$と1点になります. これを$\infty$とかくことにすると$\PP^1 = \CC \cup \{\infty\}$となります. Riemann球面といいます.
 
 複素多様体$X$から$\PP^1$への正則な写像を$X$上の有理型関数といいます. $X$上の有理型関数全体を$M(X)$と書くことにします.
 \subsection{アーベル多様体}
@@ -882,11 +888,11 @@ $V$の基底を$e_1, \ldots, e_g$, $\Lambda$の基底を$\lambda_1, \ldots, \lam
 複素トーラス$X$の周期行列$\Pi$にたいしてある非退化交代行列$A \in M_{2g}(Z)\ (A = -^tA)$が存在して,
 \begin{itemize}
 \item[1)] $\Pi A^{-1}{\ }^t\Pi = 0$
-\item[2)] $i \Pi A^{-1}{\ }^t\tilde\Pi > 0$ (正定置 $:=$ 行列の固有値が全て正)
+\item[2)] $i \Pi A^{-1}{\ }^t\tilde\Pi > 0$ （正定置 $:=$ 行列の固有値が全て正）
 \end{itemize}
 が成り立つとき$X$を複素アーベル多様体といいます.
 
-1次元のときは複素トーラスは必ずアーベル多様体になります. なぜなら$\Lambda$の基底を1と$\lambda$(実数でない)として, 非退化な交代行列$A$について逆行列$A^{-1}$を
+1次元のときは複素トーラスは必ずアーベル多様体になります. なぜなら$\Lambda$の基底を1と$\lambda$（実数でない）として, 非退化な交代行列$A$について逆行列$A^{-1}$を
 
 \begin{equation*}
 \begin{pmatrix}
@@ -899,19 +905,19 @@ $V$の基底を$e_1, \ldots, e_g$, $\Lambda$の基底を$\lambda_1, \ldots, \lam
 2)の条件は$i(1\ \lambda)\ {}^t(b\tilde\lambda\ -b)\ 2b\ \Im(\lambda) > 0$となり常に成り立つようにできるからです.
 
 \subsection{楕円曲線}
-1次元複素トーラス(=1次元アーベル多様体)を楕円曲線といいます.
+1次元複素トーラス（=1次元アーベル多様体）を楕円曲線といいます.
 
 $\pi: \CC\rightarrow X := \CC/\Lambda$を$\pi(x) := x \mod \Lambda$とします. 単に$\Lambda$だけずれた値を同一視するということです.
 
-楕円曲線$X$に位相を入れましょう. 「$U\subseteq X$がopen $\Leftrightarrow$ $\pi^{-1}(U)$が$\CC$の中でopen」と定義します. 更に$\pi: \CC \rightarrow X$は連続になります(ほぼ自明).
+楕円曲線$X$に位相を入れましょう. 「$U\subseteq X$がopen $\Leftrightarrow$ $\pi^{-1}(U)$が$\CC$の中でopen」と定義します. 更に$\pi: \CC \rightarrow X$は連続になります（ほぼ自明）.
 
 $X$はHausdorffです. まあこれも容易でしょう.
 
 $K := \{a+b\lambda \in \CC | a, b \in [0, 1]\}$とすると$K$は$C$の中でコンパクト(有界閉集合)で, $\pi$が連続ですからその像である$X = \pi(K)$はコンパクトです.
 
-$\CC$の中の開集合$U$を十分小さくとると$\Lambda$ずれた値が入らないようにもできます. その範囲内では$\pi|_U: U \rightarrow \pi(U) \subseteq X$は1対1の対応がつき逆写像も連続である(homeomorphic)ことがわかります. つまり$X$は局所的には$\CC$の開集合と同じと思えるということです. 貼り合わせ部分も問題なくできて, これにより$X$はコンパクト1次元複素多様体になります.
+$\CC$の中の開集合$U$を十分小さくとると$\Lambda$ずれた値が入らないようにもできます. その範囲内では$\pi|_U: U \rightarrow \pi(U) \subseteq X$は1対1の対応がつき逆写像も連続である（homeomorphic）ことがわかります. つまり$X$は局所的には$\CC$の開集合と同じと思えるということです. 貼り合わせ部分も問題なくできて, これにより$X$はコンパクト1次元複素多様体になります.
 
-また加算や逆元(マイナス操作)も正則にできることがわかります.
+また加算や逆元（マイナス操作）も正則にできることがわかります.
 
 楕円曲線$X$上の関数は$\CC$上の関数で$f(x+a+b\lambda) = f(x)$, $a, b \in\ZZ$, $\Lambda = \langle1, \lambda\rangle$を満たす関数とみなせます. $f$を$\CC$上の二重周期関数と呼んだりします.
 
@@ -922,7 +928,7 @@ $m$を自然数とし, $X$上の$m$倍写像$m: X \ni x \rightarrow mx \in X$を
 となります. また$m$は全射です.
 
 \section{ペアリング}
-基本的な用語がだいたい終わったので(ふぅ), 漸く本題のペアリングの話に戻れます.
+基本的な用語がだいたい終わったので（ふぅ）, 漸く本題のペアリングの話に戻れます.
 
 \subsection{Weilペアリングの定義}
 
@@ -987,7 +993,7 @@ $X$上の有理型関数$f(\neq 0,\ \infty) \in M(X)$にたいして, $f(z) = 0$
 
 $\div(f) := \sum \ord_P(f) (P)$と定義すると, $f$のzeroやpoleや有限個しかありません. なぜなら無限個あったとすると$X$はコンパクトなので集積点ができて, 一致の定理からそれは定数関数で0か$\infty$になってしまうからです. よって$\div(f)$は$X$の因子となります.
 
-また$f$の重複度を込めたzeroの数とpoleの数は同じである$f$が定める関数体間$M(\PP^1) \rightarrow M(X)$の拡大次数に等しい)ことが示せて, 結果$\deg \div(f) = 0$となります.
+また$f$の重複度を込めたzeroの数とpoleの数は同じで, ある$f$が定める関数体間$M(\PP^1) \rightarrow M(X)$の拡大次数に等しい)ことが示せて, 結果$\deg \div(f) = 0$となります.
 
 2つの因子$D, D'$が線形同値であるとは, ある$f$があって$D = D + \div(f)$となるときにいいます.
 
@@ -1022,7 +1028,7 @@ $L(5(P))$はどうでしょう. 点$P$で$f$が2位, $g$が3位のpoleを持つ�
 
 もうひとつ, $L(6(P))$を考えると$f^3, g^2$のどちらも6位のpoleを持ちます. $\deg L(6(P)) = 6$ですから, 7個の基底の候補$1, f, g, f^2, fg, f^3, g^2$は線形従属になります.
 
-つまりある$a_1, \ldots, a_7$(全てが0ではない)が存在して
+つまりある$a_1, \ldots, a_7$（全てが0ではない）が存在して
 
 \begin{equation*}
 a_1 + a_2f + a_3g + a_4f^2+a_5fg+a_6f^3+a_7g^2 = 0
@@ -1122,7 +1128,7 @@ $h(Q) := \left(\frac{\tau_P^*g}{g}\right)(Q)$ とすると
 \end{align*}
 よって$\tau_P^*(D - \div(g)) = D - \div(g)$.
 
-任意の$P \in X$について$\tau_P$による引き戻しが変わらないということは$D - \div(g) = 0$. つまり$D = \div(g) \sim 0$となり単射となりました. 全射も準同型と同様に(出来ると思う...疲れた...).
+任意の$P \in X$について$\tau_P$による引き戻しが変わらないということは$D - \div(g) = 0$. つまり$D = \div(g) \sim 0$となり単射となりました. 全射も準同型と同様に（出来ると思う...疲れた...）.
 
 長々とやってましたが, $\hat{X} = \Ext(X, \GG_m)$と$\Pic^0(X)$と$X$が同一視できることにより, Weilペアリングが
 \begin{equation*}
