@@ -473,8 +473,10 @@ $R$加群の列とその間の準同型写像の組$X = \Set{X_n, d_n:X_n\righta
 \[
 \ldots \rightarrow X_{n+1} \xrightarrow[]{d_{n+1}} X_{n} \xrightarrow[]{d_{n}} X_{n-1} \rightarrow \ldots
 \]
+このとき$Z_n(x) = \Ker(d_n)$, $B_n(X) = \Im(d_{n+1})$として$H_n(X) = Z_n(X)/B_n(X)$を$X$の$n$次ホモロジーといいます.
 
-このとき, $Z_n(x) = \Ker(d_n)$, $B_n(X) = \Im(d_{n+1})$として$H_n(X) = Z_n(X)/B_n(X)$を$X$の$n$次ホモロジーといいます.
+$d_n \circ d_{n+1} = 0$から$\Im(d_{n+1})\subseteq \Ker(d_n)$なので完全列は鎖複体ですがその逆は一般には成り立ちません.
+完全列のホモロジーは$Z_n(X)=B_n(X)$なので0です．
 
 二つの鎖複体$X = \Set{X_n, d_n}$, $Y = \Set{Y_n, e_n}$とその間の準同型写像の組$f_n:X_n \rightarrow Y_n$
 が$\Set{d_n}$と可換なとき（すなわち$f_{n-1}\circ d_n=e_n\circ f_n$） $f = \Set{f_n}$を複体写像といいます.
@@ -508,14 +510,14 @@ f_n-g_n = s_{n-1} \circ d_n+e_{n+1} \circ s_n
   \ldots \ar[r] & Y_{n+1} \ar[r]_{e_{n+1}} & Y_{n} \ar[r]_{e_n} & Y_{n-1} \ar[r] & \ldots\\
 }
 \end{equation*}
-$f$と$g$の差が上から下への矢印が右行って左斜め下に行くものと左斜めに行って右にいくものとの和でかけるということです.
+$f$と$g$の差が右行って左斜め下に行くものと左斜めに行って右にいくものとの和でかけるということです.
 
 鎖ホモトープという条件は同値関係$\sim$になります.
 $Z_n(X) \ni x$にたいして
 \[
 f_n(x) - g_n(x) = (s_{n-1} \circ d_n + e_{n+1}\circ s_n)(x) = e_{n-1}(s_n(x)) \in B_n(Y).
 \]
-よって $H(f_n)(x) = H(g_n)(x)$. つまり$f\sim g$なら$H(f) = H(g)$ということです.
+よって $H(f_n)(x) = H(g_n)(x)$. つまり$f\sim g$なら$H(f) = H(g)$となります.
 
 鎖複体 $X, Y$ にたいして鎖準同型 $f: X\rightarrow Y$, $g: Y\rightarrow X$が存在して $g\circ f \sim \id_X$, $f\circ g \sim \id_Y$となったとします
 （$\id_X$などは恒等写像）. この状態を$X$と$Y$は同じホモトピー型を持つといいます. すると
