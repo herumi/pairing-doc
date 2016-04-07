@@ -1,4 +1,7 @@
-# [ホモロジー代数とWeilペアリングの定義](https://github.com/herumi/pairing-doc/blob/master/main.pdf)
+# ホモロジー代数とWeilペアリングの定義
+
+# PDF
+* [ホモロジー代数とWeilペアリングの定義](https://github.com/herumi/pairing-doc/blob/master/main.pdf)
 
 # 著者
 * オリジナル 光成滋生（@herumi）
