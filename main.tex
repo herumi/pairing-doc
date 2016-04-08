@@ -70,7 +70,7 @@
 \tableofcontents
 
 \section{はじめに}
-Pairing 2010でSilverman\footnote{\url{http://www.thlab.net/pairing2010/invited.html\#silverman}}の招待講演がありました.
+Pairing 2010でSilverman\footnote{\url{http://www.thlab.net/pairing2010/invited.html#silverman}}の招待講演がありました.
 そこでは暗号の本に載ってるのと違った, より抽象的な定義の説明がありました.
 このテキスト\footnote{このテキストは\url{http://homepage1.nifty.com/herumi/crypt/pairing-def.html}を元に緑川さんがTeXに書き起こされました.}は多少（どころではない分量になってしまったけど）補足説明してみます.
 
@@ -304,13 +304,16 @@ $\overline{r_1}=\overline{r'_1}$, $\overline{r_2}=\overline{r'_2}$とします.
 \subsection{準同型定理}
 
 準同型写像$f: P \rightarrow Q$があると自然に
+
 \[
 \begin{array}{cccc}
 \overline{f}:& P/\Ker(f)            & \longrightarrow & Q\\
         &\rotatebox{90}{$\in$} &                 & \rotatebox{90}{$\in$} \\
         & \overline{p}              & \longmapsto     & f(p)
 \end{array}
+
 \]
+
 を定義できます. $\overline{f}$がwell-definedなことだけを確認しましょう.
 $\overline{p}=\overline{p'}$となる別の代表元$p'$をとると$p-p'\in \Ker(f)$なので$f(p)-f(p')=f(p-p')=0$.
 よって$f(p)=f(p')$. $\overline{f}$が$R$加群として準同型であることも示せます.
@@ -589,7 +592,7 @@ $d'_0\circ g_0 = d_0\circ 0 = 0$より$\Im(g_0) \subseteq \Ker(d'_0) = \Im(d'_1)
 $d'_1: P'_1 \rightarrow \Im(d'_1)$と$g_0: P_0 \rightarrow \Im(d'_1)$にたいして$P'_1$の射影性から,
 $s_0: P_0 \rightarrow P'_1$で$g_0 = d'_1 \circ s_0$であるものが存在します.
 
-次に, $d'_1\circ(g_1 - s_0\circ d_1) = d'sub(1)\circ g_1 - g_0 \circ d_1 = 0$ より
+次に, $d'_1\circ(g_1 - s_0\circ d_1) = d'_1\circ g_1 - g_0 \circ d_1 = 0$ より
 $g_1 - s_0 \circ d_1 \subseteq \Ker(d'_1) = \Im(d'_2)$.
 $P'_2$の射影性から$s_1: P_1 \rightarrow P'_2$ で $s_1\circ d'_2 = g_1 - s_0\circ d_1$であるものが存在します. つまり
 $g_1 = s_1\circ d'_2 + s_0\circ d_1$. これを繰り返すことで $\{s_n\}$ を構成できます. よって $\{\phi_n\} \sim \{\phi'_n\}$.
@@ -1058,7 +1061,7 @@ $D$が一点$P$からなる因子$(P)$のとき, $l((P)) = 1$です. 定数関�
 
 まず楕円曲線の点$P$を固定して$D = n(P)$という因子を考えてみると, Riemann-Rochの定理から$n > 0$のとき$l(n(P)) = n$となります.
 
-$L(2(P))$は2次元で定数関数1意外の元$f$をとると$L(2(P)) = \langle1, f\rangle$となります.
+$L(2(P))$は2次元で定数関数1以外の元$f$をとると$L(2(P)) = \langle1, f\rangle$となります.
 
 $L(3(P))$は3次元で$L(3(P)) = \langle1, f, g\rangle$としましょう. $L(4(P))$を考えてみます. $f$は点$P$で2位のpoleだったので$f^2$は点$P$で4位のpoleを持ちます. つまり$L(4(P)) = \langle1, f, g, f^2\rangle$.
 
